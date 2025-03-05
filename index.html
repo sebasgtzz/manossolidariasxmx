@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manos Solidarias X MX</title>
+    <link rel="icon" href="/Imagenes/Logo sin fondo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #E3E1FF;
+            color: #333;
+            padding: 15px;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #6C63FF;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #6C63FF;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .btn {
+            background: #FF6B9A;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #ff4f85;
+        }
+        .logo {
+            width: 120px;
+        }
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                width: 100px;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+        
+        let testimonialIndex = 0;
+        function showTestimonials() {
+            let testimonials = document.getElementsByClassName("testimonial");
+            for (let i = 0; i < testimonials.length; i++) {
+                testimonials[i].style.display = "none";
+            }
+            testimonialIndex++;
+            if (testimonialIndex > testimonials.length) { testimonialIndex = 1; }
+            testimonials[testimonialIndex - 1].style.display = "block";
+            setTimeout(showTestimonials, 6000);
+        }
+        
+        window.onload = function() {
+            showSlides();
+            showTestimonials();
+        };
+    </script>
+    
+</head>
+<body>
+    <header>
+        <img src="C:\Users\sebas\Documents\Programacion\Imagenes\Logo sin fondo.png" alt="Logo Manos Solidarias" class="logo">
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="https://www.instagram.com/manossolidariasxmx/" target="_blank">Conócenos</a>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="inicio" class="section">
+            <h2>Un poco de nosotros</h2>
+            <div class="slider">
+                <img class="slides" src="/Imagenes/WhatsApp Image 2025-03-04 at 10.21.41 PM (1).jpeg" alt="Foto de voluntarios">
+                <img class="slides" src="/Imagenes/WhatsApp Image 2025-03-04 at 10.43.51 PM (2).jpeg" alt="Entrega de ayuda">
+                <img class="slides" src="/Imagenes/WhatsApp Image 2025-03-04 at 10.43.52 PM.jpeg" alt="Actividades comunitarias">
+                <img class="slides" src="/Imagenes/WhatsApp Image 2025-03-04 at 10.51.24 PM.jpeg" alt="Evento solidario">
+            </div>
+            <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social a través de nuestras acciones. Creemos en la empatía, en el trabajo en equipo y en la importancia de hacer algo por los demás. Aquí no solo ayudamos, también creamos una familia que crece con cada persona que se une.</p>
+        </section>
+        <section class="testimonial-slider">
+            <h2>Lo que dicen de nosotros</h2>
+            <div class="testimonial">
+                <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
+                <p class="testimonial-author">- Angel Campos, Guerrero</p>
+            </div>
+            <div class="testimonial">
+                <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
+                <p class="testimonial-author">- Andre Villanueva, Puebla</p>
+            </div>
+            <div class="testimonial">
+                <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increible al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
+                <p class="testimonial-author">- Antonio Robles, Morelos</p>
+            </div>
+        </section>
+        <section id="unete" class="section">
+            <h2>Únete a Nosotros</h2>
+            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank">Contáctanos</a>
+        </section>
+    </div>
+    <footer>
+        &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
