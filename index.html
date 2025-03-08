@@ -98,7 +98,8 @@
         }
         .swiper-container {
             width: 100%;
-            padding: 20px 0;
+            height: 300px; /* Altura fija para el contenedor */
+            margin: 20px 0;
         }
         .swiper-slide {
             background: #fff;
@@ -106,10 +107,16 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto; /* Scroll interno si el contenido es muy largo */
         }
         .testimonial-author {
             font-style: italic;
             color: #6C63FF;
+            margin-top: 10px;
         }
         @media screen and (max-width: 768px) {
             header {
@@ -125,6 +132,9 @@
             nav a {
                 display: block;
                 margin: 5px 0;
+            }
+            .swiper-container {
+                height: 400px; /* Ajusta la altura para móviles */
             }
         }
     </style>
@@ -214,7 +224,3 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
-        });
-    </script>
-</body>
-</html>
