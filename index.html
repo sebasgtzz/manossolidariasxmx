@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -17,13 +17,10 @@
         }
         header {
             background: #E3E1FF;
-            color: #333;
-            padding: 15px;
-            font-size: 20px;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
             flex-wrap: wrap;
         }
         nav a {
@@ -44,17 +41,6 @@
         .section {
             margin: 40px 0;
         }
-        .slider {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-        }
-        .slides {
-            display: none;
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
         .latest-news {
             background: #fff;
             padding: 20px;
@@ -68,44 +54,20 @@
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .latest-news p {
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        footer {
-            background: #6C63FF;
-            color: white;
-            padding: 15px;
-            font-size: 14px;
-        }
-        .btn {
-            background: #FF6B9A;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #ff4f85;
-        }
-        .logo {
-            width: 120px;
-        }
-
-        /* Estilos para testimonios */
         .testimonial-slider {
             position: relative;
             overflow: hidden;
             max-width: 90%;
             margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
         .testimonial-container {
             display: flex;
-            transition: transform 0.5s ease;
             width: 300%;
+            transition: transform 0.5s ease-in-out;
         }
         .testimonial {
             min-width: 100%;
@@ -113,21 +75,18 @@
             text-align: center;
             padding: 20px;
         }
-
+        .testimonial p {
+            font-size: 18px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 10px;
+        }
         @media screen and (max-width: 768px) {
             header {
                 flex-direction: column;
                 text-align: center;
-            }
-            .logo {
-                width: 100px;
-            }
-            nav {
-                margin-top: 10px;
-            }
-            nav a {
-                display: block;
-                margin: 5px 0;
             }
         }
     </style>
@@ -141,62 +100,51 @@
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
         </nav>
     </header>
+    
     <div class="container">
         <section id="inicio" class="section">
             <h2>Un poco de nosotros</h2>
-            <div class="slider">
-                <img class="slides" src="imagenes/1.jpeg" alt="Foto de voluntarios">
-                <img class="slides" src="imagenes/2.jpeg" alt="Entrega de ayuda">
-                <img class="slides" src="imagenes/3.jpeg" alt="Actividades comunitarias">
-                <img class="slides" src="imagenes/4.jpeg" alt="Evento solidario">
-            </div>
-            <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social...</p>
+            <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social a través de nuestras acciones.</p>
         </section>
+
         <section class="latest-news">
             <h2>Últimas Acciones</h2>
             <img src="imagenes/new.jpeg" alt="Actividad reciente">
-            <p>Pilar, nuestra voz en el 8M 💜✊...</p>
+            <p><strong>Pilar, nuestra voz en el 8M 💜✊</strong></p>
+            <p>El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió homenaje a aquellas que han dejado huella en la lucha por la equidad.</p>
+            <p>Como organización, nos enorgullece formar parte de estos diálogos que visibilizan la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos con el cambio, elevando voces y construyendo juntos un futuro más justo.</p>
         </section>
+
         <section class="testimonial-slider">
             <h2>Lo que dicen de nosotros</h2>
             <div class="testimonial-container">
                 <div class="testimonial">
-                    <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria..."</p>
+                    <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
                     <p class="testimonial-author">- Angel Campos, Guerrero</p>
                 </div>
                 <div class="testimonial">
-                    <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida..."</p>
+                    <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
                     <p class="testimonial-author">- Andre Villanueva, Puebla</p>
                 </div>
                 <div class="testimonial">
-                    <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble..."</p>
+                    <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
                     <p class="testimonial-author">- Antonio Robles, Morelos</p>
                 </div>
             </div>
         </section>
+
         <section id="unete" class="section">
             <h2>Únete a Nosotros</h2>
-            <p>Si buscas ser parte de algo más grande...</p>
+            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank">Contáctanos</a>
-        </section>        
+        </section>
     </div>
+
     <footer>
         &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
     </footer>
 
     <script>
-        let slideIndex = 0;
-        function showSlides() {
-            let slides = document.getElementsByClassName("slides");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 7000);
-        }
-
         let testimonialIndex = 0;
         const testimonials = document.querySelector(".testimonial-container");
         const totalTestimonials = document.querySelectorAll(".testimonial").length;
@@ -205,7 +153,6 @@
             testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
             testimonials.style.transform = `translateX(-${testimonialIndex * 100}%)`;
         }
-
         setInterval(showTestimonials, 6000);
 
         let startX = 0;
@@ -215,17 +162,15 @@
             startX = e.touches[0].clientX;
         });
 
-        testimonials.addEventListener("touchmove", (e) => {
-            endX = e.touches[0].clientX;
-        });
-
-        testimonials.addEventListener("touchend", () => {
-            if (startX - endX > 50) testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
-            else if (endX - startX > 50) testimonialIndex = (testimonialIndex - 1 + totalTestimonials) % totalTestimonials;
+        testimonials.addEventListener("touchend", (e) => {
+            endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) {
+                testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
+            } else if (endX - startX > 50) {
+                testimonialIndex = (testimonialIndex - 1 + totalTestimonials) % totalTestimonials;
+            }
             testimonials.style.transform = `translateX(-${testimonialIndex * 100}%)`;
         });
-
-        window.onload = showSlides;
     </script>
 </body>
 </html>
