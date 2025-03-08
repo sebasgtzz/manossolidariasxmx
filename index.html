@@ -6,8 +6,6 @@
     <title>Manos Solidarias X MX</title>
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -69,8 +67,6 @@
             max-width: 600px;
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            display: block;
-            margin: 0 auto;
         }
         .latest-news p {
             margin-top: 10px;
@@ -98,22 +94,24 @@
         .logo {
             width: 120px;
         }
-        .swiper-container {
-            width: 100%;
-            height: 300px; /* Altura fija para el contenedor */
-            margin: 20px 0;
-        }
-        .swiper-slide {
+        .testimonial-slider {
             background: #fff;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+        .testimonial {
+            display: none;
             padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto; /* Scroll interno si el contenido es muy largo */
+            border-radius: 10px;
+            background: #f9f9f9;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .testimonial p {
+            font-size: 16px;
+            color: #333;
         }
         .testimonial-author {
             font-style: italic;
@@ -135,9 +133,6 @@
                 display: block;
                 margin: 5px 0;
             }
-            .swiper-container {
-                height: 400px; /* Ajusta la altura para móviles */
-            }
         }
     </style>
     <script>
@@ -153,8 +148,21 @@
             setTimeout(showSlides, 7000);
         }
         
+        let testimonialIndex = 0;
+        function showTestimonials() {
+            let testimonials = document.getElementsByClassName("testimonial");
+            for (let i = 0; i < testimonials.length; i++) {
+                testimonials[i].style.display = "none";
+            }
+            testimonialIndex++;
+            if (testimonialIndex > testimonials.length) { testimonialIndex = 1; }
+            testimonials[testimonialIndex - 1].style.display = "block";
+            setTimeout(showTestimonials, 6000);
+        }
+        
         window.onload = function() {
             showSlides();
+            showTestimonials();
         };
     </script>
 </head>
@@ -180,31 +188,24 @@
         </section>
         <section class="latest-news">
             <h2>Últimas Acciones</h2>
-            <img src="imagenes/1000143071.jpg" alt="Actividad reciente">
+            <img src="imagenes/new.jpeg" alt="Actividad reciente">
             <p>Pilar, nuestra voz en el 8M 💜✊
                 El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió homenaje a aquellas que han dejado huella en la lucha por la equidad.
                 Como organización, nos enorgullece formar parte de estos diálogos que visibilizan la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos con el cambio, elevando voces y construyendo juntos un futuro más justo. </p>
         </section>
         <section class="testimonial-slider">
             <h2>Lo que dicen de nosotros</h2>
-            <!-- Swiper -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
-                        <p class="testimonial-author">- Angel Campos, Guerrero</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
-                        <p class="testimonial-author">- Andre Villanueva, Puebla</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
-                        <p class="testimonial-author">- Antonio Robles, Morelos</p>
-                    </div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
+            <div class="testimonial">
+                <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
+                <p class="testimonial-author">- Angel Campos, Guerrero</p>
+            </div>
+            <div class="testimonial">
+                <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
+                <p class="testimonial-author">- Andre Villanueva, Puebla</p>
+            </div>
+            <div class="testimonial">
+                <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
+                <p class="testimonial-author">- Antonio Robles, Morelos</p>
             </div>
         </section>
         <section id="unete" class="section">
@@ -216,17 +217,5 @@
     <footer>
         &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
     </footer>
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-    </script>
 </body>
 </html>
