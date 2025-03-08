@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +6,8 @@
     <title>Manos Solidarias X MX</title>
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -17,23 +19,19 @@
         }
         header {
             background: #E3E1FF;
-            padding: 15px 30px;
+            color: #333;
+            padding: 15px;
+            font-size: 20px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 30px;
             flex-wrap: wrap;
-            text-align: center;
-        }
-        .logo {
-            width: 120px;
-        }
-        nav {
-            display: flex;
-            gap: 15px;
         }
         nav a {
             color: #6C63FF;
             text-decoration: none;
+            margin: 10px;
             font-size: 16px;
             font-weight: 600;
         }
@@ -48,30 +46,39 @@
         .section {
             margin: 40px 0;
         }
-        .testimonial-slider {
+        .slider {
             position: relative;
-            overflow: hidden;
-            max-width: 90%;
+            max-width: 100%;
             margin: auto;
         }
-        .testimonial-container {
-            display: flex;
-            transition: transform 0.5s ease;
-            width: 300%;
+        .slides {
+            display: none;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .testimonial {
-            min-width: 100%;
-            box-sizing: border-box;
-            text-align: center;
+        .latest-news {
+            background: #fff;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
         }
-        .testimonial p {
-            font-size: 16px;
-            color: #333;
+        .latest-news img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .testimonial-author {
-            font-weight: bold;
+        .latest-news p {
             margin-top: 10px;
+            font-size: 16px;
+        }
+        footer {
+            background: #6C63FF;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
         }
         .btn {
             background: #FF6B9A;
@@ -86,22 +93,23 @@
         .btn:hover {
             background: #ff4f85;
         }
-        .slider {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
+        .logo {
+            width: 120px;
         }
-        .slides {
-            display: none;
+        .swiper-container {
             width: 100%;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            background: #fff;
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
         }
-        footer {
-            background: #6C63FF;
-            color: white;
-            padding: 15px;
-            font-size: 14px;
+        .testimonial-author {
+            font-style: italic;
+            color: #6C63FF;
         }
         @media screen and (max-width: 768px) {
             header {
@@ -113,7 +121,6 @@
             }
             nav {
                 margin-top: 10px;
-                flex-direction: column;
             }
             nav a {
                 display: block;
@@ -133,34 +140,9 @@
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showSlides, 7000);
         }
-
-        let testimonialIndex = 0;
-        function showTestimonials() {
-            let testimonials = document.querySelector('.testimonial-container');
-            let total = document.querySelectorAll('.testimonial').length;
-            testimonialIndex++;
-            if (testimonialIndex >= total) { testimonialIndex = 0; }
-            let offset = -testimonialIndex * 100;
-            testimonials.style.transform = `translateX(${offset}%)`;
-        }
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-        document.querySelector('.testimonial-slider').addEventListener('touchstart', e => {
-            touchStartX = e.touches[0].clientX;
-        });
-        document.querySelector('.testimonial-slider').addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].clientX;
-            if (touchStartX > touchEndX + 50) showTestimonials();
-            if (touchStartX < touchEndX - 50) {
-                testimonialIndex = (testimonialIndex - 2 + document.querySelectorAll('.testimonial').length) % document.querySelectorAll('.testimonial').length;
-                showTestimonials();
-            }
-        });
-
+        
         window.onload = function() {
             showSlides();
-            setInterval(showTestimonials, 6000);
         };
     </script>
 </head>
@@ -174,37 +156,65 @@
         </nav>
     </header>
     <div class="container">
+        <section id="inicio" class="section">
+            <h2>Un poco de nosotros</h2>
+            <div class="slider">
+                <img class="slides" src="imagenes/1.jpeg" alt="Foto de voluntarios">
+                <img class="slides" src="imagenes/2.jpeg" alt="Entrega de ayuda">
+                <img class="slides" src="imagenes/3.jpeg" alt="Actividades comunitarias">
+                <img class="slides" src="imagenes/4.jpeg" alt="Evento solidario">
+            </div>
+            <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social a través de nuestras acciones.</p>
+        </section>
         <section class="latest-news">
             <h2>Últimas Acciones</h2>
             <img src="imagenes/new.jpeg" alt="Actividad reciente">
             <p>Pilar, nuestra voz en el 8M 💜✊
-                El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero...</p>
+                El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió homenaje a aquellas que han dejado huella en la lucha por la equidad.
+                Como organización, nos enorgullece formar parte de estos diálogos que visibilizan la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos con el cambio, elevando voces y construyendo juntos un futuro más justo. </p>
         </section>
         <section class="testimonial-slider">
             <h2>Lo que dicen de nosotros</h2>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
-                    <p class="testimonial-author">- Angel Campos, Guerrero</p>
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
+                        <p class="testimonial-author">- Angel Campos, Guerrero</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
+                        <p class="testimonial-author">- Andre Villanueva, Puebla</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
+                        <p class="testimonial-author">- Antonio Robles, Morelos</p>
+                    </div>
                 </div>
-                <div class="testimonial">
-                    <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
-                    <p class="testimonial-author">- Andre Villanueva, Puebla</p>
-                </div>
-                <div class="testimonial">
-                    <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
-                    <p class="testimonial-author">- Antonio Robles, Morelos</p>
-                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
         </section>
         <section id="unete" class="section">
             <h2>Únete a Nosotros</h2>
-            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar.</p>
+            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank">Contáctanos</a>
-        </section>
+        </section>        
     </div>
     <footer>
         &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
     </footer>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
 </body>
 </html>
