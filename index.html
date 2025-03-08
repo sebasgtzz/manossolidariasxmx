@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -19,14 +19,21 @@
             background: #E3E1FF;
             padding: 15px 30px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            text-align: center;
+        }
+        .logo {
+            width: 120px;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
         }
         nav a {
             color: #6C63FF;
             text-decoration: none;
-            margin: 10px;
             font-size: 16px;
             font-weight: 600;
         }
@@ -41,33 +48,16 @@
         .section {
             margin: 40px 0;
         }
-        .latest-news {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 40px 0;
-        }
-        .latest-news img {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
         .testimonial-slider {
             position: relative;
             overflow: hidden;
             max-width: 90%;
             margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
         .testimonial-container {
             display: flex;
+            transition: transform 0.5s ease;
             width: 300%;
-            transition: transform 0.5s ease-in-out;
         }
         .testimonial {
             min-width: 100%;
@@ -76,20 +66,103 @@
             padding: 20px;
         }
         .testimonial p {
-            font-size: 18px;
-            font-style: italic;
+            font-size: 16px;
+            color: #333;
         }
         .testimonial-author {
             font-weight: bold;
             margin-top: 10px;
+        }
+        .btn {
+            background: #FF6B9A;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #ff4f85;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #6C63FF;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
         }
         @media screen and (max-width: 768px) {
             header {
                 flex-direction: column;
                 text-align: center;
             }
+            .logo {
+                width: 100px;
+            }
+            nav {
+                margin-top: 10px;
+                flex-direction: column;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
         }
     </style>
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 7000);
+        }
+
+        let testimonialIndex = 0;
+        function showTestimonials() {
+            let testimonials = document.querySelector('.testimonial-container');
+            let total = document.querySelectorAll('.testimonial').length;
+            testimonialIndex++;
+            if (testimonialIndex >= total) { testimonialIndex = 0; }
+            let offset = -testimonialIndex * 100;
+            testimonials.style.transform = `translateX(${offset}%)`;
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.querySelector('.testimonial-slider').addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+        document.querySelector('.testimonial-slider').addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].clientX;
+            if (touchStartX > touchEndX + 50) showTestimonials();
+            if (touchStartX < touchEndX - 50) {
+                testimonialIndex = (testimonialIndex - 2 + document.querySelectorAll('.testimonial').length) % document.querySelectorAll('.testimonial').length;
+                showTestimonials();
+            }
+        });
+
+        window.onload = function() {
+            showSlides();
+            setInterval(showTestimonials, 6000);
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -100,21 +173,13 @@
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
         </nav>
     </header>
-    
     <div class="container">
-        <section id="inicio" class="section">
-            <h2>Un poco de nosotros</h2>
-            <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social a través de nuestras acciones.</p>
-        </section>
-
         <section class="latest-news">
             <h2>Últimas Acciones</h2>
             <img src="imagenes/new.jpeg" alt="Actividad reciente">
-            <p><strong>Pilar, nuestra voz en el 8M 💜✊</strong></p>
-            <p>El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió homenaje a aquellas que han dejado huella en la lucha por la equidad.</p>
-            <p>Como organización, nos enorgullece formar parte de estos diálogos que visibilizan la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos con el cambio, elevando voces y construyendo juntos un futuro más justo.</p>
+            <p>Pilar, nuestra voz en el 8M 💜✊
+                El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero...</p>
         </section>
-
         <section class="testimonial-slider">
             <h2>Lo que dicen de nosotros</h2>
             <div class="testimonial-container">
@@ -132,45 +197,14 @@
                 </div>
             </div>
         </section>
-
         <section id="unete" class="section">
             <h2>Únete a Nosotros</h2>
-            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
+            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar.</p>
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank">Contáctanos</a>
         </section>
     </div>
-
     <footer>
         &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
     </footer>
-
-    <script>
-        let testimonialIndex = 0;
-        const testimonials = document.querySelector(".testimonial-container");
-        const totalTestimonials = document.querySelectorAll(".testimonial").length;
-
-        function showTestimonials() {
-            testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
-            testimonials.style.transform = `translateX(-${testimonialIndex * 100}%)`;
-        }
-        setInterval(showTestimonials, 6000);
-
-        let startX = 0;
-        let endX = 0;
-
-        testimonials.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        testimonials.addEventListener("touchend", (e) => {
-            endX = e.changedTouches[0].clientX;
-            if (startX - endX > 50) {
-                testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
-            } else if (endX - startX > 50) {
-                testimonialIndex = (testimonialIndex - 1 + totalTestimonials) % totalTestimonials;
-            }
-            testimonials.style.transform = `translateX(-${testimonialIndex * 100}%)`;
-        });
-    </script>
 </body>
 </html>
