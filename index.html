@@ -20,19 +20,19 @@
         header {
             background: #E3E1FF;
             color: #333;
-            padding: 15px 30px;
-            font-size: 20px;
+            padding: 15px 20px;
+            font-size: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
         nav a {
             color: #6C63FF;
             text-decoration: none;
-            margin: 10px;
-            font-size: 16px;
+            margin: 8px;
+            font-size: 14px;
             font-weight: 600;
             transition: color 0.3s;
         }
@@ -41,25 +41,25 @@
             text-decoration: underline;
         }
         .container {
-            width: 90%;
+            width: 95%;
             margin: auto;
-            padding: 20px;
+            padding: 15px;
         }
         .section {
-            margin: 40px 0;
+            margin: 30px 0;
         }
         .slider {
             position: relative;
             max-width: 100%;
             margin: auto;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .slides {
             display: none;
             width: 100%;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
         }
         .slides.active {
             display: block;
@@ -67,49 +67,48 @@
         }
         .slider-controls {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 10px;
         }
         .slider-btn {
             background: none;
             color: #6C63FF;
-            border: 2px solid #6C63FF;
-            padding: 8px 12px;
-            margin: 0 8px;
-            border-radius: 25px;
+            border: 1px solid #6C63FF;
+            padding: 6px 10px;
+            margin: 0 5px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .slider-btn:hover {
             background: #6C63FF;
             color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .slider-btn:disabled {
             background: #f0f0f0;
             color: #aaa;
             border-color: #ddd;
             cursor: not-allowed;
-            box-shadow: none;
         }
         .latest-news {
             background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 40px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
         }
         .latest-news img {
             width: 100%;
-            max-width: 600px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .latest-news p {
             margin-top: 10px;
-            font-size: 16px;
+            font-size: 14px;
+            text-align: left;
+            line-height: 1.5;
         }
         .read-more {
             display: inline-block;
@@ -117,6 +116,7 @@
             color: #6C63FF;
             text-decoration: none;
             font-weight: bold;
+            font-size: 14px;
             transition: color 0.3s;
         }
         .read-more:hover {
@@ -126,153 +126,114 @@
             background: #6C63FF;
             color: white;
             padding: 15px;
-            font-size: 14px;
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
         }
         .social-media {
-            margin-top: 15px;
+            margin-top: 10px;
             text-align: center;
         }
         .social-media a {
             color: white;
-            font-size: 24px;
-            margin: 0 15px;
-            transition: color 0.3s, transform 0.3s;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s;
             text-decoration: none;
         }
         .social-media a:hover {
             color: #FF6B9A;
-            transform: scale(1.2);
         }
         .btn {
             background: #FF6B9A;
             color: white;
-            padding: 12px 24px;
+            padding: 10px 20px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: bold;
+            font-size: 14px;
             display: inline-block;
             transition: background 0.3s;
+            margin: 10px 0;
         }
         .btn:hover {
             background: #ff4f85;
         }
         .btn i {
-            margin-right: 8px;
+            margin-right: 5px;
         }
         .logo {
-            width: 120px;
+            width: 100px;
+            height: auto;
         }
         .testimonial-slider {
-            background: linear-gradient(135deg, #f8f9ff, #fff);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
-            margin: 40px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .testimonial-slider::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(108, 99, 255, 0.05) 0%, transparent 70%);
-            z-index: 0;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
         }
         .testimonial-slider h2 {
-            position: relative;
-            z-index: 1;
             color: #6C63FF;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1.5em;
+            margin-bottom: 20px;
         }
         .testimonial {
             display: none;
-            padding: 30px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #ffffff, #f8f9ff);
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            transition: all 0.4s ease;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f8f9ff;
+            margin: 15px 0;
             position: relative;
-            z-index: 1;
-            border-left: 5px solid #FF6B9A;
+            border-left: 3px solid #FF6B9A;
         }
         .testimonial.active {
             display: block;
-            animation: fadeInUp 0.6s ease-out;
-        }
-        .testimonial:hover {
-            transform: translateY(-8px);
-            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4em;
-            color: #FF6B9A;
-            opacity: 0.3;
-            font-family: serif;
+            animation: fadeIn 0.5s ease-out;
         }
         .testimonial p {
-            font-size: 1.1em;
+            font-size: 14px;
             color: #333;
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-style: italic;
-            position: relative;
-            z-index: 2;
         }
         .testimonial-author {
             font-style: normal;
             color: #6C63FF;
-            margin-top: 15px;
             font-weight: 600;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .testimonial-author::before {
-            content: '👤';
-            font-size: 1.2em;
+            font-size: 13px;
+            text-align: right;
         }
         .testimonial-controls {
             text-align: center;
-            margin-top: 30px;
-            position: relative;
-            z-index: 1;
+            margin-top: 15px;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 480px) {
             header {
                 flex-direction: column;
-                text-align: center;
-            }
-            .logo {
-                width: 100px;
+                padding: 10px;
             }
             nav {
                 margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             nav a {
-                display: block;
-                margin: 5px 0;
+                margin: 5px;
+                font-size: 13px;
+            }
+            .logo {
+                width: 80px;
+            }
+            .testimonial-slider {
+                padding: 15px;
+            }
+            .testimonial {
+                padding: 15px;
             }
         }
     </style>
@@ -290,7 +251,6 @@
             }
             slides[slideIndex].classList.add("active");
             
-            // Actualizar botones
             document.getElementById("prevSlide").disabled = slideIndex === 0;
             document.getElementById("nextSlide").disabled = slideIndex === slides.length - 1;
         }
@@ -315,7 +275,6 @@
             }
             testimonials[testimonialIndex].classList.add("active");
             
-            // Actualizar botones
             document.getElementById("prevTestimonial").disabled = testimonialIndex === 0;
             document.getElementById("nextTestimonial").disabled = testimonialIndex === testimonials.length - 1;
         }
@@ -344,7 +303,7 @@
             <a href="conocenos.html">Conócenos</a>
             <a href="noticias.html">Noticias</a>
             <a href="eventos.html">Eventos</a>
-            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete</a>
         </nav>
     </header>
     <div class="container">
@@ -371,18 +330,18 @@
             <a href="news_paper.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
         </section>
         <section class="testimonial-slider">
-            <h2>Lo que dicen de nosotros</h2>
+            <h2>Testimonios</h2>
             <div class="testimonial active">
-                <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
-                <p class="testimonial-author">- Angel Campos, Guerrero</p>
+                <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás y me ha permitido crecer como persona mientras ayudamos a quienes más lo necesitan."</p>
+                <p class="testimonial-author">Angel Campos, Guerrero</p>
             </div>
             <div class="testimonial">
-                <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
-                <p class="testimonial-author">- Andre Villanueva, Puebla</p>
+                <p>"Participar en las actividades de Manos Solidarias ha sido una de las mejores experiencias de mi vida. Cada proyecto es una oportunidad para aprender, compartir y construir un México más solidario."</p>
+                <p class="testimonial-author">Andre Villanueva, Puebla</p>
             </div>
             <div class="testimonial">
-                <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
-                <p class="testimonial-author">- Antonio Robles, Morelos</p>
+                <p>"Gracias a Manos Solidarias descubrí el verdadero significado del trabajo en equipo. Juntos hemos llevado ayuda a comunidades que realmente lo necesitan, creando lazos que van más allá del voluntariado."</p>
+                <p class="testimonial-author">Antonio Robles, Morelos</p>
             </div>
             <div class="testimonial-controls">
                 <button class="slider-btn" id="prevTestimonial" onclick="prevTestimonial()"><i class="fas fa-chevron-left"></i> Anterior</button>
@@ -392,11 +351,11 @@
         <section id="unete" class="section">
             <h2>Únete a Nosotros</h2>
             <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
-                        <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank"><i class="fas fa-hand-holding-heart"></i> Contáctanos</a>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank"><i class="fas fa-hand-holding-heart"></i> Contáctanos</a>
         </section>        
     </div>
     <footer>
-        &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
+        &copy; 2025 Manos Solidarias X MX. Todos los derechos reservados.
         <div class="social-media">
             <a href="https://www.facebook.com/manossolidariasxmx" target="_blank" title="Facebook">
                 <i class="fab fa-facebook-f"></i>
