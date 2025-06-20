@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Manos Solidarias X MX</title>
+    <link rel="icon" href="imagenes/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Agregar íconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #E3E1FF;
+            color: #333;
+            padding: 15px 30px;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #6C63FF;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #FF6B9A;
+            text-decoration: underline;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            margin: 40px 0;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .section h2 {
+            color: #6C63FF;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+        .section h3 {
+            color: #FF6B9A;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .section p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .logo {
+            width: 120px;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #6C63FF, #FF6B9A);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .event-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .event-card h4 {
+            font-size: 1.5em;
+            color: #6C63FF;
+            margin-bottom: 10px;
+        }
+        .event-card .date {
+            font-size: 0.9em;
+            color: #FF6B9A;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .event-card p {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.5;
+        }
+        .event-card .location {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 10px;
+        }
+        footer {
+            background: #6C63FF;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        .social-media {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .social-media a {
+            color: white;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        .social-media a:hover {
+            color: #FF6B9A;
+            transform: scale(1.2);
+        }
+        .btn {
+            background: #FF6B9A;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #ff4f85;
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                width: 100px;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+            .hero-section h1 {
+                font-size: 2.2em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="conocenos.html">Conócenos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
+        </nav>
+    </header>
+
+    <div class="hero-section">
+        <h1>Próximos Eventos de Manos Solidarias X MX</h1>
+        <p>Descubre nuestras próximas actividades y cómo puedes unirte para generar un impacto positivo en tu comunidad.</p>
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <h2>Eventos Recientes y Futuros</h2>
+            <div class="event-card">
+                <h4>Jornada de Limpieza en Playa Escondida</h4>
+                <p class="date"><i class="far fa-calendar-alt"></i> 25 de Julio, 2024</p>
+                <p>Únete a nosotros para limpiar una de las playas más hermosas de la costa de Oaxaca. Necesitamos voluntarios para recoger residuos y educar a los visitantes sobre la importancia de mantener nuestros ecosistemas limpios.</p>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> Playa Escondida, Oaxaca</p>
+                <a href="https://forms.gle/your-event-signup-link" class="btn" target="_blank"><i class="fas fa-user-plus"></i> Inscríbete</a>
+            </div>
+
+            <div class="event-card">
+                <h4>Taller de Huertos Urbanos Comunitarios</h4>
+                <p class="date"><i class="far fa-calendar-alt"></i> 10 de Agosto, 2024</p>
+                <p>Aprende a crear y mantener tu propio huerto urbano. Este taller busca fomentar la autosuficiencia alimentaria y la conexión con la naturaleza en entornos urbanos. Abierto a todas las edades.</p>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> Centro Comunitario "La Esperanza", Ciudad de México</p>
+                <a href="https://forms.gle/your-event-signup-link" class="btn" target="_blank"><i class="fas fa-user-plus"></i> Inscríbete</a>
+            </div>
+
+            <div class="event-card">
+                <h4>Campaña de Donación de Libros para Bibliotecas Rurales</h4>
+                <p class="date"><i class="far fa-calendar-alt"></i> Septiembre, 2024 (Todo el mes)</p>
+                <p>Estamos recolectando libros de todos los géneros y para todas las edades para equipar bibliotecas en comunidades rurales con acceso limitado a recursos educativos. ¡Tu donación puede abrir un mundo de conocimiento!</p>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> Puntos de Recolección en Puebla y Morelos</p>
+                <a href="https://forms.gle/your-event-signup-link" class="btn" target="_blank"><i class="fas fa-hand-holding-heart"></i> Más Información</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Eventos Pasados</h2>
+            <p>Revive algunos de nuestros eventos más exitosos y el impacto que generamos juntos.</p>
+            <div class="event-card">
+                <h4>Entrega de Juguetes en Navidad 2023</h4>
+                <p class="date"><i class="far fa-calendar-alt"></i> 20 de Diciembre, 2023</p>
+                <p>Llevamos alegría a más de 300 niños en comunidades de bajos recursos, entregando juguetes y organizando actividades recreativas. Fue un día lleno de sonrisas y esperanza.</p>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> Varias comunidades en Guerrero</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
+        <div class="social-media">
+            <a href="https://www.facebook.com/manossolidariasxmx" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/@manossolidariasxmx" target="_blank" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://twitter.com/manossolidariasxmx" target="_blank" title="X (Twitter)">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/manossolidariasxmx/" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
