@@ -164,40 +164,100 @@
             width: 120px;
         }
         .testimonial-slider {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f8f9ff, #fff);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
             margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-slider::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        .testimonial-slider h2 {
+            position: relative;
+            z-index: 1;
+            color: #6C63FF;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .testimonial {
             display: none;
-            padding: 20px;
-            border-radius: 10px;
-            background: #f9f9f9;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff, #f8f9ff);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
             margin: 20px 0;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            border-left: 5px solid #FF6B9A;
         }
         .testimonial.active {
             display: block;
+            animation: fadeInUp 0.6s ease-out;
         }
         .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4em;
+            color: #FF6B9A;
+            opacity: 0.3;
+            font-family: serif;
         }
         .testimonial p {
-            font-size: 16px;
+            font-size: 1.1em;
             color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
         }
         .testimonial-author {
-            font-style: italic;
+            font-style: normal;
             color: #6C63FF;
-            margin-top: 10px;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .testimonial-author::before {
+            content: '👤';
+            font-size: 1.2em;
         }
         .testimonial-controls {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         @media screen and (max-width: 768px) {
             header {
@@ -282,6 +342,8 @@
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="conocenos.html">Conócenos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="eventos.html">Eventos</a>
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
         </nav>
     </header>
@@ -306,7 +368,7 @@
             <p>Pilar, nuestra voz en el 8M 💜✊
                 El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió homenaje a aquellas que han dejado huella en la lucha por la equidad.
                 Como organización, nos enorgullece formar parte de estos diálogos que visibilizan la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos con el cambio, elevando voces y construyendo juntos un futuro más justo. </p>
-            <a href="https://www.instagram.com/p/DG1LL-fxFgvnRKjV2CfjZSZxdDnECQrJUfj42k0/?igsh=dWo1aWhobWlqaTlh" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+            <a href="news_paper.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
         </section>
         <section class="testimonial-slider">
             <h2>Lo que dicen de nosotros</h2>
