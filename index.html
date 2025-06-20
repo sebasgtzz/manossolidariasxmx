@@ -65,6 +65,28 @@
             display: block;
             opacity: 1;
         }
+        .slider-controls {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .slider-btn {
+            background: #6C63FF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .slider-btn:hover {
+            background: #FF6B9A;
+        }
+        .slider-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
         .latest-news {
             background: #fff;
             padding: 20px;
@@ -99,6 +121,21 @@
             padding: 15px;
             font-size: 14px;
             box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .social-media {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .social-media a {
+            color: white;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        .social-media a:hover {
+            color: #FF6B9A;
+            transform: scale(1.2);
         }
         .btn {
             background: #FF6B9A;
@@ -135,6 +172,9 @@
             margin: 20px 0;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+        .testimonial.active {
+            display: block;
+        }
         .testimonial:hover {
             transform: translateY(-5px);
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
@@ -147,6 +187,10 @@
             font-style: italic;
             color: #6C63FF;
             margin-top: 10px;
+        }
+        .testimonial-controls {
+            text-align: center;
+            margin-top: 20px;
         }
         @media screen and (max-width: 768px) {
             header {
@@ -167,32 +211,61 @@
     </style>
     <script>
         let slideIndex = 0;
-        function showSlides() {
+        let testimonialIndex = 0;
+        
+        function showSlide(index) {
             let slides = document.getElementsByClassName("slides");
+            if (index >= slides.length) { slideIndex = 0; }
+            if (index < 0) { slideIndex = slides.length - 1; }
+            
             for (let i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
             }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
-            slides[slideIndex - 1].classList.add("active");
-            setTimeout(showSlides, 7000);
+            slides[slideIndex].classList.add("active");
+            
+            // Actualizar botones
+            document.getElementById("prevSlide").disabled = slideIndex === 0;
+            document.getElementById("nextSlide").disabled = slideIndex === slides.length - 1;
         }
         
-        let testimonialIndex = 0;
-        function showTestimonials() {
+        function nextSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+        
+        function prevSlide() {
+            slideIndex--;
+            showSlide(slideIndex);
+        }
+        
+        function showTestimonial(index) {
             let testimonials = document.getElementsByClassName("testimonial");
+            if (index >= testimonials.length) { testimonialIndex = 0; }
+            if (index < 0) { testimonialIndex = testimonials.length - 1; }
+            
             for (let i = 0; i < testimonials.length; i++) {
-                testimonials[i].style.display = "none";
+                testimonials[i].classList.remove("active");
             }
+            testimonials[testimonialIndex].classList.add("active");
+            
+            // Actualizar botones
+            document.getElementById("prevTestimonial").disabled = testimonialIndex === 0;
+            document.getElementById("nextTestimonial").disabled = testimonialIndex === testimonials.length - 1;
+        }
+        
+        function nextTestimonial() {
             testimonialIndex++;
-            if (testimonialIndex > testimonials.length) { testimonialIndex = 1; }
-            testimonials[testimonialIndex - 1].style.display = "block";
-            setTimeout(showTestimonials, 6000);
+            showTestimonial(testimonialIndex);
+        }
+        
+        function prevTestimonial() {
+            testimonialIndex--;
+            showTestimonial(testimonialIndex);
         }
         
         window.onload = function() {
-            showSlides();
-            showTestimonials();
+            showSlide(0);
+            showTestimonial(0);
         };
     </script>
 </head>
@@ -201,7 +274,7 @@
         <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
         <nav>
             <a href="#inicio">Inicio</a>
-            <a href="https://www.instagram.com/manossolidariasxmx/" target="_blank">Conócenos</a>
+            <a href="conocenos.html">Conócenos</a>
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
         </nav>
     </header>
@@ -213,6 +286,10 @@
                 <img class="slides" src="imagenes/2.jpeg" alt="Entrega de ayuda">
                 <img class="slides" src="imagenes/3.jpeg" alt="Actividades comunitarias">
                 <img class="slides" src="imagenes/4.jpeg" alt="Evento solidario">
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" id="prevSlide" onclick="prevSlide()"><i class="fas fa-chevron-left"></i> Anterior</button>
+                <button class="slider-btn" id="nextSlide" onclick="nextSlide()">Siguiente <i class="fas fa-chevron-right"></i></button>
             </div>
             <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social a través de nuestras acciones.</p>
         </section>
@@ -226,7 +303,7 @@
         </section>
         <section class="testimonial-slider">
             <h2>Lo que dicen de nosotros</h2>
-            <div class="testimonial">
+            <div class="testimonial active">
                 <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
                 <p class="testimonial-author">- Angel Campos, Guerrero</p>
             </div>
@@ -238,6 +315,10 @@
                 <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
                 <p class="testimonial-author">- Antonio Robles, Morelos</p>
             </div>
+            <div class="testimonial-controls">
+                <button class="slider-btn" id="prevTestimonial" onclick="prevTestimonial()"><i class="fas fa-chevron-left"></i> Anterior</button>
+                <button class="slider-btn" id="nextTestimonial" onclick="nextTestimonial()">Siguiente <i class="fas fa-chevron-right"></i></button>
+            </div>
         </section>
         <section id="unete" class="section">
             <h2>Únete a Nosotros</h2>
@@ -247,6 +328,21 @@
     </div>
     <footer>
         &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
+        <div class="social-media">
+            <a href="https://www.facebook.com/manossolidariasxmx" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/@manossolidariasxmx" target="_blank" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://twitter.com/manossolidariasxmx" target="_blank" title="X (Twitter)">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/manossolidariasxmx/" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
     </footer>
 </body>
 </html>
+
