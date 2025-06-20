@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manos Solidarias X MX</title>
+    <link rel="icon" href="imagenes/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Agregar íconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #E3E1FF;
+            color: #333;
+            padding: 15px 30px;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #6C63FF;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #FF6B9A;
+            text-decoration: underline;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            transition: opacity 1s ease-in-out;
+        }
+        .slides.active {
+            display: block;
+            opacity: 1;
+        }
+        .slider-controls {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .slider-btn {
+            background: #6C63FF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .slider-btn:hover {
+            background: #FF6B9A;
+        }
+        .slider-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .latest-news {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+        .latest-news img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .latest-news p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #6C63FF;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .read-more:hover {
+            color: #FF6B9A;
+        }
+        footer {
+            background: #6C63FF;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .social-media {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .social-media a {
+            color: white;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        .social-media a:hover {
+            color: #FF6B9A;
+            transform: scale(1.2);
+        }
+        .btn {
+            background: #FF6B9A;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #ff4f85;
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        .logo {
+            width: 120px;
+        }
+        .testimonial-slider {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+        .testimonial {
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .testimonial.active {
+            display: block;
+        }
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .testimonial p {
+            font-size: 16px;
+            color: #333;
+        }
+        .testimonial-author {
+            font-style: italic;
+            color: #6C63FF;
+            margin-top: 10px;
+        }
+        .testimonial-controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                width: 100px;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+    <script>
+        let slideIndex = 0;
+        let testimonialIndex = 0;
+        
+        function showSlide(index) {
+            let slides = document.getElementsByClassName("slides");
+            if (index >= slides.length) { slideIndex = 0; }
+            if (index < 0) { slideIndex = slides.length - 1; }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex].classList.add("active");
+            
+            // Actualizar botones
+            document.getElementById("prevSlide").disabled = slideIndex === 0;
+            document.getElementById("nextSlide").disabled = slideIndex === slides.length - 1;
+        }
+        
+        function nextSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+        
+        function prevSlide() {
+            slideIndex--;
+            showSlide(slideIndex);
+        }
+        
+        function showTestimonial(index) {
+            let testimonials = document.getElementsByClassName("testimonial");
+            if (index >= testimonials.length) { testimonialIndex = 0; }
+            if (index < 0) { testimonialIndex = testimonials.length - 1; }
+            
+            for (let i = 0; i < testimonials.length; i++) {
+                testimonials[i].classList.remove("active");
+            }
+            testimonials[testimonialIndex].classList.add("active");
+            
+            // Actualizar botones
+            document.getElementById("prevTestimonial").disabled = testimonialIndex === 0;
+            document.getElementById("nextTestimonial").disabled = testimonialIndex === testimonials.length - 1;
+        }
+        
+        function nextTestimonial() {
+            testimonialIndex++;
+            showTestimonial(testimonialIndex);
+        }
+        
+        function prevTestimonial() {
+            testimonialIndex--;
+            showTestimonial(testimonialIndex);
+        }
+        
+        window.onload = function() {
+            showSlide(0);
+            showTestimonial(0);
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="conocenos.html">Conócenos</a>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="inicio" class="section">
+            <h2>Un poco de nosotros</h2>
+            <div class="slider">
+                <img class="slides active" src="imagenes/1.jpeg" alt="Foto de voluntarios">
+                <img class="slides" src="imagenes/2.jpeg" alt="Entrega de ayuda">
+                <img class="slides" src="imagenes/3.jpeg" alt="Actividades comunitarias">
+                <img class="slides" src="imagenes/4.jpeg" alt="Evento solidario">
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" id="prevSlide" onclick="prevSlide()"><i class="fas fa-chevron-left"></i> Anterior</button>
+                <button class="slider-btn" id="nextSlide" onclick="nextSlide()">Siguiente <i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social a través de nuestras acciones.</p>
+        </section>
+        <section class="latest-news">
+            <h2>Últimas Acciones</h2>
+            <img src="imagenes/new.jpeg" alt="Actividad reciente">
+            <p>Pilar, nuestra voz en el 8M 💜✊
+                El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió homenaje a aquellas que han dejado huella en la lucha por la equidad.
+                Como organización, nos enorgullece formar parte de estos diálogos que visibilizan la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos con el cambio, elevando voces y construyendo juntos un futuro más justo. </p>
+            <a href="https://www.instagram.com/p/DG1LL-fxFgvnRKjV2CfjZSZxdDnECQrJUfj42k0/?igsh=dWo1aWhobWlqaTlh" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+        </section>
+        <section class="testimonial-slider">
+            <h2>Lo que dicen de nosotros</h2>
+            <div class="testimonial active">
+                <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás."</p>
+                <p class="testimonial-author">- Angel Campos, Guerrero</p>
+            </div>
+            <div class="testimonial">
+                <p>"Participar en sus actividades ha sido una de las mejores experiencias de mi vida. Me han inspirado a seguir ayudando."</p>
+                <p class="testimonial-author">- Andre Villanueva, Puebla</p>
+            </div>
+            <div class="testimonial">
+                <p>"Gracias a mis amigos de Manos Solidarias, tuve una experiencia increíble al llevar ayuda con ellos. Lo recomiendo a todos los que quieran hacer una diferencia."</p>
+                <p class="testimonial-author">- Antonio Robles, Morelos</p>
+            </div>
+            <div class="testimonial-controls">
+                <button class="slider-btn" id="prevTestimonial" onclick="prevTestimonial()"><i class="fas fa-chevron-left"></i> Anterior</button>
+                <button class="slider-btn" id="nextTestimonial" onclick="nextTestimonial()">Siguiente <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+        <section id="unete" class="section">
+            <h2>Únete a Nosotros</h2>
+            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
+                        <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank"><i class="fas fa-hand-holding-heart"></i> Contáctanos</a>
+        </section>        
+    </div>
+    <footer>
+        &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
+        <div class="social-media">
+            <a href="https://www.facebook.com/manossolidariasxmx" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/@manossolidariasxmx" target="_blank" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://twitter.com/manossolidariasxmx" target="_blank" title="X (Twitter)">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/manossolidariasxmx/" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
