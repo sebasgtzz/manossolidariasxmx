@@ -42,6 +42,7 @@
         }
         .container {
             width: 95%;
+            max-width: 1200px; /* Añadido máximo ancho para contenedor */
             margin: auto;
             padding: 15px;
         }
@@ -55,10 +56,14 @@
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            max-height: 600px; /* Altura máxima para computadoras */
         }
         .slides {
             display: none;
             width: 100%;
+            height: auto;
+            max-height: 600px; /* Altura máxima para computadoras */
+            object-fit: cover; /* Mantiene la relación de aspecto */
             transition: opacity 0.5s ease-in-out;
         }
         .slides.active {
@@ -103,6 +108,8 @@
             max-width: 100%;
             border-radius: 8px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            max-height: 500px; /* Altura máxima para imágenes de noticias */
+            object-fit: cover; /* Mantiene la relación de aspecto */
         }
         .latest-news p {
             margin-top: 10px;
@@ -211,6 +218,63 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        
+        /* Nuevo estilo para el botón de equipo */
+        .team-btn-container {
+            text-align: center;
+            margin: 40px 0 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #E3E1FF 0%, #f0f0ff 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(108, 99, 255, 0.1);
+        }
+        .team-btn-container h2 {
+            color: #6C63FF;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .team-btn-container p {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Media queries para diferentes tamaños de pantalla */
+        @media screen and (min-width: 768px) {
+            .slider {
+                max-height: 500px; /* Altura reducida para tablets */
+            }
+            .slides {
+                max-height: 500px;
+            }
+            .latest-news img {
+                max-height: 400px; /* Altura reducida para tablets */
+            }
+        }
+        
+        @media screen and (min-width: 992px) {
+            .slider {
+                max-height: 450px; /* Altura óptima para computadoras */
+            }
+            .slides {
+                max-height: 450px;
+            }
+            .latest-news img {
+                max-height: 350px; /* Altura óptima para computadoras */
+            }
+        }
+        
+        @media screen and (min-width: 1200px) {
+            .slider {
+                max-height: 400px; /* Altura para pantallas grandes */
+            }
+            .slides {
+                max-height: 400px;
+            }
+        }
+        
         @media screen and (max-width: 480px) {
             header {
                 flex-direction: column;
@@ -235,27 +299,17 @@
             .testimonial {
                 padding: 15px;
             }
-        }
-        /* Nuevo estilo para el botón de equipo */
-        .team-btn-container {
-            text-align: center;
-            margin: 40px 0 20px;
-            padding: 20px;
-            background: linear-gradient(135deg, #E3E1FF 0%, #f0f0ff 100%);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(108, 99, 255, 0.1);
-        }
-        .team-btn-container h2 {
-            color: #6C63FF;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        .team-btn-container p {
-            color: #555;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            font-size: 1rem;
-            line-height: 1.6;
+            
+            /* Altura más baja para móviles */
+            .slider {
+                max-height: 300px;
+            }
+            .slides {
+                max-height: 300px;
+            }
+            .latest-news img {
+                max-height: 250px;
+            }
         }
     </style>
     <script>
@@ -310,9 +364,16 @@
             showTestimonial(testimonialIndex);
         }
         
+        // Auto avanzar slider cada 5 segundos
+        function autoSlide() {
+            nextSlide();
+            setTimeout(autoSlide, 5000);
+        }
+        
         window.onload = function() {
             showSlide(0);
             showTestimonial(0);
+            setTimeout(autoSlide, 5000);
         };
     </script>
 </head>
