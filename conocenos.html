@@ -29,8 +29,6 @@
             line-height: 1.7;
             background-color: var(--gray);
             color: var(--text);
-            padding-top: 70px; /* Espacio para el header fijo */
-            transition: padding-top 0.3s ease;
         }
         
         .container {
@@ -40,98 +38,60 @@
             padding: 20px;
         }
         
-        /* Header compacto para móviles */
+        /* Header con el estilo de la página de inicio */
         header {
-            background: var(--white);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .header-container {
+            background: #E3E1FF;
+            color: #333;
+            padding: 15px 20px;
+            font-size: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+            flex-wrap: wrap;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: #6C63FF;
+            text-decoration: none;
+            margin: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #FF6B9A;
+            text-decoration: underline;
         }
         
         .logo {
-            width: 80px;
-            transition: width 0.3s;
-        }
-        
-        /* Menú hamburguesa para móviles */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--primary);
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        /* Menú de navegación principal */
-        .main-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            align-items: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .main-menu a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            position: relative;
-            transition: color 0.3s;
-            padding: 5px 0;
-        }
-        
-        .main-menu a:hover {
-            color: var(--secondary);
-        }
-        
-        .main-menu a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        .main-menu a:hover::after {
-            width: 100%;
+            width: 100px;
+            height: auto;
         }
         
         .join-btn {
-            background: var(--primary);
-            color: var(--white);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s;
+            background: #FF6B9A;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            transition: background 0.3s;
+            margin: 0 5px;
         }
         
         .join-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+            background: #ff4f85;
+            text-decoration: none;
         }
         
         /* Hero Section */
@@ -506,7 +466,7 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
-        /* Responsive Design - Menú hamburguesa */
+        /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.8rem;
@@ -518,53 +478,13 @@
         }
         
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .main-menu {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--white);
+            header {
                 flex-direction: column;
-                gap: 0;
-                padding: 20px;
-                transform: translateY(-100%);
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                padding: 10px;
             }
             
-            .main-menu.active {
-                transform: translateY(0);
-            }
-            
-            .main-menu li {
-                width: 100%;
-                text-align: center;
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(108, 99, 255, 0.1);
-            }
-            
-            .main-menu li:last-child {
-                border-bottom: none;
-            }
-            
-            .main-menu a {
-                display: block;
-                width: 100%;
-                padding: 10px 0;
-            }
-            
-            .join-btn {
-                margin-top: 15px;
-                display: block;
-                width: 100%;
-                text-align: center;
+            nav {
+                margin-top: 10px;
             }
             
             .hero {
@@ -588,53 +508,40 @@
             .section-title {
                 font-size: 1.8rem;
             }
+            
+            .logo {
+                width: 80px;
+            }
         }
         
         @media (max-width: 480px) {
-            header {
-                height: 60px;
-                padding: 0 15px;
+            .section {
+                padding: 25px 20px;
             }
             
-            body {
-                padding-top: 60px;
+            .member-header {
+                padding: 20px 15px;
             }
             
-            .logo {
-                width: 70px;
-            }
-            
-            .main-menu {
-                top: 60px;
-            }
-            
-            .hero {
-                padding: 50px 0;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
+            .member-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header compacto -->
+    <!-- Header con el estilo de la página de inicio -->
     <header>
-        <div class="header-container">
-            <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="main-menu" id="main-menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="conocenos.html" class="active">Conócenos</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="join-btn" target="_blank">Únete</a></li>
-            </ul>
-        </div>
+        <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="conocenos.html" class="active">Conócenos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="join-btn" target="_blank">Únete</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -841,51 +748,5 @@
             </div>
         </div>
     </footer>
-    
-    <script>
-        // Menú hamburguesa
-        const menuToggle = document.getElementById('menu-toggle');
-        const mainMenu = document.getElementById('main-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            mainMenu.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            if (mainMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        // Comportamiento del header al hacer scroll
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-        const headerHeight = header.offsetHeight;
-        
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-                // Scroll hacia abajo - ocultar header
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Scroll hacia arriba - mostrar header
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-        
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('#main-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainMenu.classList.remove('active');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-            });
-        });
-    </script>
 </body>
 </html>
