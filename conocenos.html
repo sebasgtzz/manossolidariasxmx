@@ -5,257 +5,582 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conócenos - Manos Solidarias X MX</title>
     <link rel="icon" href="imagenes/logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Agregar íconos de FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6B9A;
+            --light: #E3E1FF;
+            --dark: #333;
+            --white: #fff;
+            --gray: #f4f4f9;
+            --text: #444;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
+            box-sizing: border-box;
         }
-        header {
-            background: #E3E1FF;
-            color: #333;
-            padding: 15px 30px;
-            font-size: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            background-color: var(--gray);
+            color: var(--text);
         }
-        nav a {
-            color: #6C63FF;
-            text-decoration: none;
-            margin: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #FF6B9A;
-            text-decoration: underline;
-        }
+        
         .container {
             width: 90%;
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
             padding: 20px;
         }
-        .section {
-            margin: 40px 0;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: left;
+        
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .section h2 {
-            color: #6C63FF;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.2em;
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .section h3 {
-            color: #FF6B9A;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        .section p {
-            font-size: 16px;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
+        
         .logo {
             width: 120px;
         }
-        .hero-section {
-            background: linear-gradient(135deg, #6C63FF, #FF6B9A);
-            color: white;
-            padding: 60px 30px;
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .join-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .join-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 80px 0;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
         }
-        .hero-section h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.1)" points="0,100 100,0 100,100"/></svg>');
+            background-size: 100% 100%;
+            opacity: 0.2;
         }
-        .hero-section p {
-            font-size: 1.2em;
+        
+        .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
         }
-        .members-grid {
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styling */
+        .section {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 60px;
+            transition: transform 0.3s;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section h3 {
+            color: var(--secondary);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Values Section */
+        .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
+        
+        .value-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.15);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .value-description {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        /* Team Section */
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
         .member-card {
-            background: #f9f9f9;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(108, 99, 255, 0.2);
+        }
+        
+        .member-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 30px 20px;
             text-align: center;
         }
-        .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        }
+        
         .member-photo {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #6C63FF, #FF6B9A);
+            margin: 0 auto 15px;
+            background: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2.5em;
+            color: var(--primary);
+            font-size: 2.5rem;
             font-weight: bold;
+            border: 4px solid rgba(255, 255, 255, 0.3);
         }
+        
         .member-name {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #6C63FF;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
         }
+        
         .member-role {
-            font-size: 1em;
-            color: #FF6B9A;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
             font-weight: 500;
-            margin-bottom: 15px;
         }
+        
+        .member-body {
+            padding: 25px 20px;
+            flex-grow: 1;
+        }
+        
         .member-description {
-            font-size: 0.95em;
-            color: #666;
-            line-height: 1.5;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        .value-card {
-            background: #f9f9f9;
-            padding: 25px;
-            border-radius: 10px;
+        
+        .team-cta {
             text-align: center;
-            border-left: 5px solid #6C63FF;
+            margin-top: 50px;
         }
-        .value-icon {
-            font-size: 2.5em;
-            color: #FF6B9A;
-            margin-bottom: 15px;
+        
+        /* Why Section */
+        .why-section ul {
+            padding-left: 20px;
+            max-width: 800px;
+            margin: 20px auto;
         }
-        .value-title {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #6C63FF;
-            margin-bottom: 10px;
+        
+        .why-section li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
         }
-        .value-description {
-            font-size: 0.95em;
-            color: #666;
+        
+        .why-section li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
-        footer {
-            background: #6C63FF;
-            color: white;
-            padding: 15px;
-            font-size: 14px;
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        
+        .why-section li strong {
+            color: var(--primary);
+        }
+        
+        .cta-container {
+            text-align: center;
             margin-top: 40px;
         }
-        .social-media {
-            margin-top: 15px;
-            text-align: center;
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: 60px;
         }
-        .social-media a {
-            color: white;
-            font-size: 24px;
-            margin: 0 15px;
-            transition: color 0.3s, transform 0.3s;
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            transition: all 0.3s;
         }
-        .social-media a:hover {
-            color: #FF6B9A;
-            transform: scale(1.2);
+        
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
         }
-        .btn {
-            background: #FF6B9A;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            display: inline-block;
-            transition: background 0.3s;
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
             margin-top: 20px;
         }
-        .btn:hover {
-            background: #ff4f85;
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 18px;
+            transition: all 0.3s;
         }
-        .btn i {
-            margin-right: 8px;
+        
+        .social-link:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
         }
-        @media screen and (max-width: 768px) {
-            header {
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
                 flex-direction: column;
-                text-align: center;
+                gap: 15px;
             }
-            .logo {
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 25px 20px;
+            }
+            
+            .member-header {
+                padding: 20px 15px;
+            }
+            
+            .member-photo {
                 width: 100px;
-            }
-            nav {
-                margin-top: 10px;
-            }
-            nav a {
-                display: block;
-                margin: 5px 0;
-            }
-            .hero-section h1 {
-                font-size: 2.2em;
-            }
-            .hero-section p {
-                font-size: 1em;
-            }
-            .members-grid {
-                grid-template-columns: 1fr;
+                height: 100px;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="conocenos.html">Conócenos</a>
-            <a href="noticias.html">Noticias</a>
-            <a href="eventos.html">Eventos</a>
-            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete a nosotros</a>
-        </nav>
+        <div class="header-container">
+            <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html" class="active">Conócenos</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="join-btn" target="_blank">Únete</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <div class="hero-section">
-        <h1>Manos Solidarias X MX 🩵</h1>
-        <p>Conoce nuestra historia, nuestra misión y a las personas que hacen posible el cambio social en México</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Manos Solidarias X MX 🩵</h1>
+            <p>Conoce nuestra historia, nuestra misión y a las personas que hacen posible el cambio social en México</p>
+            <div class="cta-buttons">
+                <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-hand-holding-heart"></i> Únete a nosotros
+                </a>
+                <a href="#equipo" class="btn btn-secondary">
+                    <i class="fas fa-users"></i> Conoce nuestro equipo
+                </a>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
+        <!-- About Section -->
         <section class="section">
-            <h2>¿Quiénes Somos?</h2>
+            <h2 class="section-title">¿Quiénes Somos?</h2>
             <p>Manos Solidarias X MX es una organización juvenil comprometida con el cambio social y la construcción de un México más justo y equitativo. Nacimos del deseo compartido de jóvenes apasionados por transformar su entorno y contribuir positivamente a sus comunidades.</p>
             
             <p>Somos una red de voluntarios que cree firmemente en el poder de la acción colectiva. Cada uno de nuestros miembros aporta sus talentos, experiencias y energía para crear iniciativas que generen un impacto real en la vida de las personas que más lo necesitan.</p>
@@ -272,8 +597,9 @@
             <p>Ser la organización juvenil de referencia en México para la acción social, reconocida por nuestra capacidad de movilizar, inspirar y formar a jóvenes comprometidos con la construcción de un país más justo, donde cada persona tenga las oportunidades necesarias para desarrollar su máximo potencial.</p>
         </section>
 
+        <!-- Values Section -->
         <section class="section">
-            <h2>Nuestros Valores</h2>
+            <h2 class="section-title">Nuestros Valores</h2>
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-heart"></i></div>
@@ -308,72 +634,71 @@
             </div>
         </section>
 
-        <section class="section">
-            <h2>Conoce a Nuestro Equipo</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Somos un grupo diverso de jóvenes unidos por la pasión de generar cambios positivos en nuestras comunidades. Cada miembro aporta sus talentos únicos para hacer realidad nuestra misión.</p>
+        <!-- Team Section -->
+        <section id="equipo" class="section">
+            <h2 class="section-title">Conoce a Nuestro Equipo</h2>
+            <p class="team-intro">Somos un grupo diverso de jóvenes unidos por la pasión de generar cambios positivos en nuestras comunidades. Cada miembro aporta sus talentos únicos para hacer realidad nuestra misión.</p>
             
-            <!-- Miembro principal siempre visible -->
-            <div class="main-member">
-                <div class="member-card featured">
-                    <div class="member-photo">BF</div>
-                    <div class="member-name">Benjamin Figueroa</div>
-                    <div class="member-role">Fundador de Manos Solidarias X MX</div>
-                    <div class="member-description">Estudiante universitario apasionado por la lavor social, y el apoyo a su comunidad. Tuvo una vision donde los jovenes podiamos ser parte del cambio</div>
+            <div class="team-grid">
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-photo">BF</div>
+                        <div class="member-name">Benjamin Figueroa</div>
+                        <div class="member-role">Fundador de Manos Solidarias X MX</div>
+                    </div>
+                    <div class="member-body">
+                        <p class="member-description">Estudiante universitario apasionado por la labor social y el apoyo a su comunidad. Tuvo una visión donde los jóvenes podíamos ser parte del cambio.</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Botón para mostrar más miembros -->
-            <div class="team-toggle">
-                <button class="toggle-btn" onclick="toggleTeamMembers()">
-                    <span id="toggle-text">Ver más miembros del equipo</span>
-                    <i class="fas fa-chevron-down" id="toggle-icon"></i>
-                </button>
-            </div>
-
-            <!-- Miembros adicionales (inicialmente ocultos) -->
-            <div class="additional-members" id="additional-members">
-                <div class="members-grid">
-                    <div class="member-card">
+                
+                <div class="member-card">
+                    <div class="member-header">
                         <div class="member-photo">SC</div>
                         <div class="member-name">Sebastian Chino</div>
                         <div class="member-role">Coordinador de Proyectos</div>
-                        <div class="member-description">Sebas es el encargado de realizar la logistica de las actividades y la coordinacion de las mismas</div>
                     </div>
-                    
-                    <div class="member-card">
+                    <div class="member-body">
+                        <p class="member-description">Sebas es el encargado de realizar la logística de las actividades y la coordinación de las mismas.</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-header">
                         <div class="member-photo">A</div>
                         <div class="member-name">Andre Villanueva</div>
                         <div class="member-role">Estudiante Universitario</div>
-                        <div class="member-description">Desde Puebla, Andre se dedica a reclutar y capacitar nuevos voluntarios. Su entusiasmo contagioso y su habilidad para conectar con las personas han ayudado a expandir nuestra red de colaboradores comprometidos con el cambio social.</div>
                     </div>
-                    
-                    <div class="member-card">
+                    <div class="member-body">
+                        <p class="member-description">Desde Puebla, Andre se dedica a reclutar y capacitar nuevos voluntarios. Su entusiasmo contagioso y su habilidad para conectar con las personas han ayudado a expandir nuestra red de colaboradores.</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-header">
                         <div class="member-photo">P</div>
                         <div class="member-name">Pilar</div>
                         <div class="member-role">Estudiante Universitaria</div>
-                        <div class="member-description">Pilar es una miembro activa de la organizacion, la cual ha participado en varias actividades en apoyo a la comunidad.</div>
                     </div>
-                    
-                    <div class="member-card">
-                        <div class="member-photo">+</div>
-                        <div class="member-name">¡Únete a Nosotros!</div>
-                        <div class="member-role">Tu lugar está aquí</div>
-                        <div class="member-description">Estamos siempre buscando personas comprometidas que quieran formar parte de nuestro equipo. Si compartes nuestra visión y quieres contribuir al cambio social, ¡te esperamos con los brazos abiertos!</div>
-                        <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank" style="margin-top: 15px;">¡Únete!</a>
+                    <div class="member-body">
+                        <p class="member-description">Pilar es una miembro activa de la organización, la cual ha participado en varias actividades en apoyo a la comunidad.</p>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="equipo.html" class="btn">Conoce a todo nuestro equipo</a>
+            
+            <div class="team-cta">
+                <a href="equipo.html" class="btn btn-primary">
+                    <i class="fas fa-users"></i> Conoce a todo nuestro equipo
+                </a>
             </div>
         </section>
 
-        <section class="section">
-            <h2>¿Por Qué Nos Fundamos?</h2>
+        <!-- Why Section -->
+        <section class="section why-section">
+            <h2 class="section-title">¿Por Qué Nos Fundamos?</h2>
             <p>Manos Solidarias X MX nació de la convicción de que los jóvenes mexicanos tienen el poder y la responsabilidad de transformar su entorno. En un país donde las desigualdades sociales y económicas representan desafíos constantes, vimos la necesidad de crear una plataforma donde la energía juvenil pudiera canalizarse hacia acciones concretas y significativas.</p>
 
             <p>Nos fundamos porque creemos que:</p>
-            <ul style="text-align: left; max-width: 800px; margin: 20px auto;">
+            <ul>
                 <li><strong>El cambio comienza con nosotros:</strong> No podemos esperar a que otros resuelvan los problemas que vemos en nuestras comunidades.</li>
                 <li><strong>La juventud es una fuerza transformadora:</strong> Los jóvenes tienen la creatividad, energía y perspectiva fresca necesarias para encontrar soluciones innovadoras.</li>
                 <li><strong>La solidaridad multiplica el impacto:</strong> Trabajando juntos podemos lograr mucho más que actuando individualmente.</li>
@@ -383,29 +708,61 @@
 
             <p>Nuestro compromiso va más allá de las actividades puntuales; buscamos formar ciudadanos conscientes, empáticos y comprometidos que continúen generando cambios positivos a lo largo de sus vidas. Creemos firmemente que al invertir en el desarrollo de liderazgos juveniles comprometidos con la justicia social, estamos sembrando las semillas de un México más próspero y equitativo para las futuras generaciones.</p>
 
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank">
+            <div class="cta-container">
+                <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn btn-primary" target="_blank">
                     <i class="fas fa-hand-holding-heart"></i> Únete a Nuestra Misión
                 </a>
             </div>
         </section>
     </div>
 
+    <!-- Footer -->
     <footer>
-        &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
-        <div class="social-media">
-            <a href="https://www.facebook.com/profile.php?id=61564445529713" target="_blank" title="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.tiktok.com/@manossolidariasxmx" target="_blank" title="TikTok">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://twitter.com/manossolidariasxmx" target="_blank" title="X (Twitter)">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.instagram.com/manossolidariasxmx/" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="footer-logo">
+                    <p>Trabajando juntos por un México más justo y solidario donde los jóvenes sean protagonistas del cambio social.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61564445529713" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@manossolidariasxmx" class="social-link" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://twitter.com/manossolidariasxmx" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/manossolidariasxmx/" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="conocenos.html">Conócenos</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Contáctanos</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> contacto@manossolidariasxmx.org</li>
+                        <li><i class="fas fa-phone"></i> +52 55 1234 5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ciudad de México, México</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 Manos Solidarias X MX. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
 </body>
