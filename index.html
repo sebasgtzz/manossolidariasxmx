@@ -9,6 +9,22 @@
     <!-- Agregar íconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6B9A;
+            --light: #E3E1FF;
+            --dark: #333;
+            --white: #fff;
+            --gray: #f4f4f9;
+            --text: #444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -42,236 +58,302 @@
         }
         .container {
             width: 95%;
-            max-width: 1200px; /* Añadido máximo ancho para contenedor */
-            margin: auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 15px;
         }
         .section {
             margin: 30px 0;
         }
-        .slider {
+        
+        /* Slider rediseñado para mostrar imágenes completas */
+        .slider-container {
             position: relative;
             max-width: 100%;
-            margin: auto;
+            margin: 20px auto;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            max-height: 600px; /* Altura máxima para computadoras */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            background: #f0f0f0;
         }
-        .slides {
-            display: none;
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 400px; /* Altura fija para mantener consistencia */
+        }
+        
+        .slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .slide img {
             width: 100%;
-            height: auto;
-            max-height: 600px; /* Altura máxima para computadoras */
-            object-fit: cover; /* Mantiene la relación de aspecto */
-            transition: opacity 0.5s ease-in-out;
+            height: 100%;
+            object-fit: contain; /* Muestra la imagen completa sin recortar */
+            max-height: 400px; /* Altura máxima para computadoras */
         }
-        .slides.active {
-            display: block;
-            opacity: 1;
-        }
+        
         .slider-controls {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
+        
         .slider-btn {
             background: none;
             color: #6C63FF;
             border: 1px solid #6C63FF;
-            padding: 6px 10px;
-            margin: 0 5px;
+            padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
+        
         .slider-btn:hover {
             background: #6C63FF;
             color: white;
         }
+        
         .slider-btn:disabled {
             background: #f0f0f0;
             color: #aaa;
             border-color: #ddd;
             cursor: not-allowed;
         }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .dot.active {
+            background: #6C63FF;
+        }
+        
         .latest-news {
             background: #fff;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
             margin: 30px 0;
+            text-align: left;
         }
+        
         .latest-news img {
             width: 100%;
-            max-width: 100%;
+            max-height: 400px;
             border-radius: 8px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            max-height: 500px; /* Altura máxima para imágenes de noticias */
-            object-fit: cover; /* Mantiene la relación de aspecto */
+            object-fit: contain; /* Muestra la imagen completa */
+            margin-bottom: 15px;
+            background: #f8f8f8;
+            padding: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
         }
+        
+        .latest-news h2 {
+            color: #6C63FF;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
         .latest-news p {
             margin-top: 10px;
-            font-size: 14px;
-            text-align: left;
-            line-height: 1.5;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
         }
+        
         .read-more {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
             color: #6C63FF;
             text-decoration: none;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 15px;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
+        
         .read-more:hover {
             color: #FF6B9A;
         }
+        
         footer {
             background: #6C63FF;
             color: white;
-            padding: 15px;
-            font-size: 12px;
+            padding: 25px 15px;
+            font-size: 14px;
+            margin-top: 40px;
         }
+        
         .social-media {
-            margin-top: 10px;
+            margin-top: 15px;
             text-align: center;
         }
+        
         .social-media a {
             color: white;
-            font-size: 20px;
-            margin: 0 10px;
-            transition: color 0.3s;
+            font-size: 22px;
+            margin: 0 12px;
+            transition: color 0.3s, transform 0.3s;
             text-decoration: none;
         }
+        
         .social-media a:hover {
             color: #FF6B9A;
+            transform: scale(1.2);
         }
+        
         .btn {
             background: #FF6B9A;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
-            font-size: 14px;
-            display: inline-block;
-            transition: background 0.3s;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s, transform 0.3s;
             margin: 10px 0;
         }
+        
         .btn:hover {
             background: #ff4f85;
+            transform: translateY(-3px);
         }
-        .btn i {
-            margin-right: 5px;
-        }
+        
         .logo {
             width: 100px;
             height: auto;
         }
+        
         .testimonial-slider {
             background: #fff;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-            margin: 30px 0;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+            margin: 40px 0;
         }
+        
         .testimonial-slider h2 {
             color: #6C63FF;
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
         }
+        
         .testimonial {
             display: none;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
             background: #f8f9ff;
-            margin: 15px 0;
+            margin: 20px 0;
             position: relative;
-            border-left: 3px solid #FF6B9A;
+            border-left: 4px solid #FF6B9A;
         }
+        
         .testimonial.active {
             display: block;
             animation: fadeIn 0.5s ease-out;
         }
+        
         .testimonial p {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
             font-style: italic;
         }
+        
         .testimonial-author {
             font-style: normal;
             color: #6C63FF;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 15px;
             text-align: right;
         }
+        
         .testimonial-controls {
             text-align: center;
-            margin-top: 15px;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
         
-        /* Nuevo estilo para el botón de equipo */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Sección equipo */
         .team-btn-container {
             text-align: center;
-            margin: 40px 0 20px;
-            padding: 20px;
+            margin: 50px 0 30px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, #E3E1FF 0%, #f0f0ff 100%);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(108, 99, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(108, 99, 255, 0.12);
         }
+        
         .team-btn-container h2 {
             color: #6C63FF;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
+        
         .team-btn-container p {
             color: #555;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            font-size: 1rem;
-            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
         
-        /* Media queries para diferentes tamaños de pantalla */
-        @media screen and (min-width: 768px) {
+        /* Responsive */
+        @media screen and (max-width: 768px) {
             .slider {
-                max-height: 500px; /* Altura reducida para tablets */
+                height: 300px;
             }
-            .slides {
-                max-height: 500px;
+            
+            .slide img {
+                max-height: 300px;
             }
+            
             .latest-news img {
-                max-height: 400px; /* Altura reducida para tablets */
+                max-height: 300px;
             }
-        }
-        
-        @media screen and (min-width: 992px) {
-            .slider {
-                max-height: 450px; /* Altura óptima para computadoras */
-            }
-            .slides {
-                max-height: 450px;
-            }
-            .latest-news img {
-                max-height: 350px; /* Altura óptima para computadoras */
-            }
-        }
-        
-        @media screen and (min-width: 1200px) {
-            .slider {
-                max-height: 400px; /* Altura para pantallas grandes */
-            }
-            .slides {
-                max-height: 400px;
+            
+            .slider-btn {
+                padding: 6px 12px;
+                font-size: 13px;
             }
         }
         
@@ -280,102 +362,52 @@
                 flex-direction: column;
                 padding: 10px;
             }
+            
             nav {
                 margin-top: 10px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
             nav a {
                 margin: 5px;
                 font-size: 13px;
             }
+            
             .logo {
                 width: 80px;
             }
-            .testimonial-slider {
-                padding: 15px;
-            }
-            .testimonial {
-                padding: 15px;
+            
+            .slider {
+                height: 250px;
             }
             
-            /* Altura más baja para móviles */
-            .slider {
-                max-height: 300px;
+            .slide img {
+                max-height: 250px;
             }
-            .slides {
-                max-height: 300px;
-            }
+            
             .latest-news img {
                 max-height: 250px;
             }
+            
+            .testimonial-slider {
+                padding: 15px;
+            }
+            
+            .testimonial {
+                padding: 20px 15px;
+            }
+            
+            .team-btn-container {
+                padding: 25px 15px;
+            }
+            
+            .team-btn-container h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
-    <script>
-        let slideIndex = 0;
-        let testimonialIndex = 0;
-        
-        function showSlide(index) {
-            let slides = document.getElementsByClassName("slides");
-            if (index >= slides.length) { slideIndex = 0; }
-            if (index < 0) { slideIndex = slides.length - 1; }
-            
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            slides[slideIndex].classList.add("active");
-            
-            document.getElementById("prevSlide").disabled = slideIndex === 0;
-            document.getElementById("nextSlide").disabled = slideIndex === slides.length - 1;
-        }
-        
-        function nextSlide() {
-            slideIndex++;
-            showSlide(slideIndex);
-        }
-        
-        function prevSlide() {
-            slideIndex--;
-            showSlide(slideIndex);
-        }
-        
-        function showTestimonial(index) {
-            let testimonials = document.getElementsByClassName("testimonial");
-            if (index >= testimonials.length) { testimonialIndex = 0; }
-            if (index < 0) { testimonialIndex = testimonials.length - 1; }
-            
-            for (let i = 0; i < testimonials.length; i++) {
-                testimonials[i].classList.remove("active");
-            }
-            testimonials[testimonialIndex].classList.add("active");
-            
-            document.getElementById("prevTestimonial").disabled = testimonialIndex === 0;
-            document.getElementById("nextTestimonial").disabled = testimonialIndex === testimonials.length - 1;
-        }
-        
-        function nextTestimonial() {
-            testimonialIndex++;
-            showTestimonial(testimonialIndex);
-        }
-        
-        function prevTestimonial() {
-            testimonialIndex--;
-            showTestimonial(testimonialIndex);
-        }
-        
-        // Auto avanzar slider cada 5 segundos
-        function autoSlide() {
-            nextSlide();
-            setTimeout(autoSlide, 5000);
-        }
-        
-        window.onload = function() {
-            showSlide(0);
-            showTestimonial(0);
-            setTimeout(autoSlide, 5000);
-        };
-    </script>
 </head>
 <body>
     <header>
@@ -388,63 +420,132 @@
             <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank">Únete</a>
         </nav>
     </header>
+    
     <div class="container">
         <section id="inicio" class="section">
             <h2>Un poco de nosotros</h2>
-            <div class="slider">
-                <img class="slides active" src="imagenes/1.jpeg" alt="Foto de voluntarios">
-                <img class="slides" src="imagenes/2.jpeg" alt="Entrega de ayuda">
-                <img class="slides" src="imagenes/3.jpeg" alt="Actividades comunitarias">
-                <img class="slides" src="imagenes/4.jpeg" alt="Evento solidario">
+            
+            <!-- Slider rediseñado -->
+            <div class="slider-container">
+                <div class="slider" id="slider">
+                    <div class="slide">
+                        <img src="imagenes/1.jpeg" alt="Foto de voluntarios">
+                    </div>
+                    <div class="slide">
+                        <img src="imagenes/2.jpeg" alt="Entrega de ayuda">
+                    </div>
+                    <div class="slide">
+                        <img src="imagenes/3.jpeg" alt="Actividades comunitarias">
+                    </div>
+                    <div class="slide">
+                        <img src="imagenes/4.jpeg" alt="Evento solidario">
+                    </div>
+                </div>
             </div>
+            
             <div class="slider-controls">
-                <button class="slider-btn" id="prevSlide" onclick="prevSlide()"><i class="fas fa-chevron-left"></i> Anterior</button>
-                <button class="slider-btn" id="nextSlide" onclick="nextSlide()">Siguiente <i class="fas fa-chevron-right"></i></button>
+                <button class="slider-btn" id="prevSlide">
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <button class="slider-btn" id="nextSlide">
+                    Siguiente <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-            <p>Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social a través de nuestras acciones.</p>
+            
+            <div class="slider-dots" id="sliderDots"></div>
+            
+            <p style="margin-top: 20px; font-size: 16px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Manos Solidarias es una comunidad de jóvenes apasionados por el cambio social. 
+                Nos mueve el deseo de ayudar, de crear lazos y de fortalecer el tejido social 
+                a través de nuestras acciones.
+            </p>
         </section>
+        
         <section class="latest-news">
             <h2>Últimas Acciones</h2>
             <img src="imagenes/new.jpeg" alt="Actividad reciente">
-            <p>Pilar, nuestra voz en el 8M 💜✊
-                El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió homenaje a aquellas que han dejado huella en la lucha por la equidad.
-                Como organización, nos enorgullece formar parte de estos diálogos que visibilizan la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos con el cambio, elevando voces y construyendo juntos un futuro más justo. </p>
-            <a href="news_paper.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+            <p>
+                Pilar, nuestra voz en el 8M 💜✊
+                El pasado 8 de marzo, Pilar tuvo el honor de representar a Manos Solidarias X MX 
+                en la conmemoración del Periódico Mural de la Universidad Autónoma de Guerrero. 
+                En este espacio, se destacó el papel de diversas mujeres influyentes y se rindió 
+                homenaje a aquellas que han dejado huella en la lucha por la equidad.
+            </p>
+            <p>
+                Como organización, nos enorgullece formar parte de estos diálogos que visibilizan 
+                la importancia del activismo, la sororidad y la justicia social. Seguimos comprometidos 
+                con el cambio, elevando voces y construyendo juntos un futuro más justo.
+            </p>
+            <a href="news_paper.html" class="read-more">
+                Leer más <i class="fas fa-arrow-right"></i>
+            </a>
         </section>
+        
         <section class="testimonial-slider">
             <h2>Lo que se dice de nosotros</h2>
             <div class="testimonial active">
-                <p>"Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. Aquí encontré una familia que realmente se preocupa por los demás y me ha permitido crecer como persona mientras ayudamos a quienes más lo necesitan."</p>
+                <p>
+                    "Manos Solidarias ha cambiado mi perspectiva sobre la ayuda comunitaria. 
+                    Aquí encontré una familia que realmente se preocupa por los demás y me ha 
+                    permitido crecer como persona mientras ayudamos a quienes más lo necesitan."
+                </p>
                 <p class="testimonial-author">Angel Campos, Guerrero</p>
             </div>
             <div class="testimonial">
-                <p>"Participar en las actividades de Manos Solidarias ha sido una de las mejores experiencias de mi vida. Cada proyecto es una oportunidad para aprender, compartir y construir un México más solidario."</p>
+                <p>
+                    "Participar en las actividades de Manos Solidarias ha sido una de las mejores 
+                    experiencias de mi vida. Cada proyecto es una oportunidad para aprender, compartir 
+                    y construir un México más solidario."
+                </p>
                 <p class="testimonial-author">Andre Villanueva, Puebla</p>
             </div>
             <div class="testimonial">
-                <p>"Gracias a Manos Solidarias descubrí el verdadero significado del trabajo en equipo. Juntos hemos llevado ayuda a comunidades que realmente lo necesitan, creando lazos que van más allá del voluntariado."</p>
+                <p>
+                    "Gracias a Manos Solidarias descubrí el verdadero significado del trabajo en equipo. 
+                    Juntos hemos llevado ayuda a comunidades que realmente lo necesitan, creando lazos 
+                    que van más allá del voluntariado."
+                </p>
                 <p class="testimonial-author">Antonio Robles, Morelos</p>
             </div>
             <div class="testimonial-controls">
-                <button class="slider-btn" id="prevTestimonial" onclick="prevTestimonial()"><i class="fas fa-chevron-left"></i> Anterior</button>
-                <button class="slider-btn" id="nextTestimonial" onclick="nextTestimonial()">Siguiente <i class="fas fa-chevron-right"></i></button>
+                <button class="slider-btn" id="prevTestimonial">
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <button class="slider-btn" id="nextTestimonial">
+                    Siguiente <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
+        
         <section id="unete" class="section">
             <h2>Únete a Nosotros</h2>
-            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
-            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank"><i class="fas fa-hand-holding-heart"></i> Contáctanos</a>
+            <p style="max-width: 800px; margin: 0 auto 20px; font-size: 16px;">
+                Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte 
+                de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos 
+                lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!
+            </p>
+            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank">
+                <i class="fas fa-hand-holding-heart"></i> Contáctanos
+            </a>
         </section>
         
         <!-- Sección agregada para el botón de equipo -->
         <div class="team-btn-container">
             <h2>Conoce al corazón de nuestra organización</h2>
-            <p>Detrás de cada acción solidaria hay un equipo comprometido de personas apasionadas por el cambio social. Conoce a quienes hacen posible todo lo que hacemos.</p>
-            <a href="equipo.html" class="btn"><i class="fas fa-users"></i> Conoce a todo nuestro equipo</a>
+            <p>
+                Detrás de cada acción solidaria hay un equipo comprometido de personas apasionadas 
+                por el cambio social. Conoce a quienes hacen posible todo lo que hacemos.
+            </p>
+            <a href="equipo.html" class="btn">
+                <i class="fas fa-users"></i> Conoce a todo nuestro equipo
+            </a>
         </div>
     </div>
+    
     <footer>
-        &copy; 2025 Manos Solidarias X MX. Todos los derechos reservados.
+        <div>
+            &copy; 2025 Manos Solidarias X MX. Todos los derechos reservados.
+        </div>
         <div class="social-media">
             <a href="https://www.facebook.com/profile.php?id=61564445529713" target="_blank" title="Facebook">
                 <i class="fab fa-facebook-f"></i>
@@ -460,5 +561,105 @@
             </a>
         </div>
     </footer>
+    
+    <script>
+        // Slider principal
+        const slider = document.getElementById('slider');
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('sliderDots');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        let currentSlide = 0;
+        
+        // Crear dots para el slider
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+            });
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = document.querySelectorAll('.dot');
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Actualizar dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+            
+            // Actualizar estado de los botones
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                goToSlide(currentSlide + 1);
+            }
+        });
+        
+        // Auto slide
+        function autoSlide() {
+            if (currentSlide < slides.length - 1) {
+                goToSlide(currentSlide + 1);
+            } else {
+                goToSlide(0);
+            }
+        }
+        
+        let slideInterval = setInterval(autoSlide, 5000);
+        
+        // Pausar auto slide al pasar el mouse
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(autoSlide, 5000);
+        });
+        
+        // Testimonios
+        const testimonials = document.querySelectorAll('.testimonial');
+        const prevTestimonialBtn = document.getElementById('prevTestimonial');
+        const nextTestimonialBtn = document.getElementById('nextTestimonial');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonials[index].classList.add('active');
+            currentTestimonial = index;
+            
+            // Actualizar estado de los botones
+            prevTestimonialBtn.disabled = currentTestimonial === 0;
+            nextTestimonialBtn.disabled = currentTestimonial === testimonials.length - 1;
+        }
+        
+        prevTestimonialBtn.addEventListener('click', () => {
+            if (currentTestimonial > 0) {
+                showTestimonial(currentTestimonial - 1);
+            }
+        });
+        
+        nextTestimonialBtn.addEventListener('click', () => {
+            if (currentTestimonial < testimonials.length - 1) {
+                showTestimonial(currentTestimonial + 1);
+            }
+        });
+        
+        // Inicializar
+        showTestimonial(0);
+    </script>
 </body>
 </html>
