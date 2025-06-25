@@ -18,30 +18,32 @@
             color: #333;
         }
         
-        /* ESTILOS DEL HEADER UNIFICADO */
+        /* HEADER CON MENÚ DE HAMBURGUESA CORREGIDO */
         header {
-            background: linear-gradient(135deg, #E3E1FF 0%, #f0efff 100%);
-            color: #333;
-            box-shadow: 0 4px 20px rgba(108, 99, 255, 0.15);
+            background: #E3E1FF;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 20px;
+            padding: 0 20px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            position: relative;
         }
 
-        .logo-container {
+        .logo-section {
             display: flex;
             align-items: center;
             gap: 12px;
+            z-index: 1001;
         }
 
         .logo {
@@ -55,37 +57,57 @@
             transform: scale(1.05);
         }
 
-        .logo-text {
+        .brand-name {
             font-size: 1.2rem;
             font-weight: 700;
             color: #6C63FF;
-            display: none;
+            white-space: nowrap;
+            letter-spacing: -0.5px;
         }
 
-        .mobile-menu-btn {
+        .menu-toggle {
             display: none;
+            flex-direction: column;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: #6C63FF;
             cursor: pointer;
             padding: 8px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            gap: 4px;
+            transition: transform 0.2s ease;
+            z-index: 1001;
         }
 
-        .mobile-menu-btn:hover {
-            background: rgba(108, 99, 255, 0.1);
+        .menu-toggle:hover {
             transform: scale(1.1);
         }
 
-        .nav-menu {
+        .hamburger-line {
+            width: 24px;
+            height: 2px;
+            background: #6C63FF;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .main-nav {
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .nav-link {
+        .nav-item {
             display: flex;
             align-items: center;
             gap: 6px;
@@ -93,14 +115,14 @@
             text-decoration: none;
             padding: 10px 16px;
             border-radius: 25px;
-            font-size: 14px;
             font-weight: 600;
+            font-size: 14px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .nav-link::before {
+        .nav-item::before {
             content: '';
             position: absolute;
             top: 0;
@@ -111,65 +133,44 @@
             transition: left 0.5s ease;
         }
 
-        .nav-link:hover::before {
+        .nav-item:hover::before {
             left: 100%;
         }
 
-        .nav-link:hover {
+        .nav-item:hover {
             color: #FF6B9A;
             background: rgba(255, 107, 154, 0.1);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(255, 107, 154, 0.2);
         }
 
-        .nav-link.active {
+        .nav-item.active {
             color: #FF6B9A;
             background: rgba(255, 107, 154, 0.15);
             box-shadow: 0 2px 8px rgba(255, 107, 154, 0.2);
         }
 
-        .nav-link i {
+        .nav-item i {
             font-size: 16px;
         }
 
-        .join-btn {
+        .join-link {
             background: linear-gradient(135deg, #FF6B9A, #ff4f85);
             color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 25px;
             font-weight: 700;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 154, 0.3);
             margin-left: 8px;
+            box-shadow: 0 4px 15px rgba(255, 107, 154, 0.3);
         }
 
-        .join-btn:hover {
+        .join-link:hover {
             background: linear-gradient(135deg, #ff4f85, #e63d73);
+            color: white;
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(255, 107, 154, 0.4);
         }
 
-        .join-btn i {
+        .join-link i {
             font-size: 16px;
-        }
-        
-        /* ESTILOS EXISTENTES MANTENIDOS */
-        nav a {
-            color: #6C63FF;
-            text-decoration: none;
-            margin: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #FF6B9A;
-            text-decoration: underline;
         }
         .container {
             width: 95%;
@@ -506,97 +507,151 @@
             }
         }
         
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN CORREGIDO */
         @media (max-width: 992px) {
-            .logo-text {
+            .brand-name {
                 display: block;
             }
             
-            .nav-link span {
+            .nav-item span {
                 display: none;
             }
             
-            .nav-link {
+            .nav-item {
                 padding: 10px 12px;
             }
             
-            .join-btn span {
+            .join-link span {
                 display: none;
             }
             
-            .join-btn {
+            .join-link {
                 padding: 12px 16px;
             }
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
+            .header-container {
+                padding: 0 15px;
+                height: 60px;
             }
             
-            .nav-menu {
-                position: absolute;
-                top: 100%;
+            .brand-name {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 60px;
                 left: 0;
                 right: 0;
-                background: linear-gradient(135deg, #E3E1FF 0%, #f0efff 100%);
+                background: #E3E1FF;
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 8px 25px rgba(108, 99, 255, 0.2);
-                border-radius: 0 0 20px 20px;
-                transform: translateY(-20px);
+                gap: 0;
+                transform: translateX(-100%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s ease;
-                gap: 12px;
+                border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
             }
             
-            .nav-menu.show {
-                transform: translateY(0);
+            .main-nav.open {
+                transform: translateX(0);
                 opacity: 1;
                 visibility: visible;
             }
             
-            .nav-link {
-                width: 100%;
+            .nav-item {
+                width: calc(100% - 8px);
                 justify-content: center;
                 padding: 15px 20px;
                 border-radius: 15px;
                 font-size: 16px;
+                margin: 4px 0;
+                display: flex;
+                box-sizing: border-box;
+                align-self: center;
             }
             
-            .nav-link span {
+            .nav-item span {
                 display: block;
             }
             
-            .join-btn {
-                width: 100%;
+            .join-link {
+                margin: 8px 0 0 0;
+                background: linear-gradient(135deg, #FF6B9A, #ff4f85);
+                width: calc(100% - 8px);
                 justify-content: center;
                 padding: 15px 20px;
                 font-size: 16px;
-                margin-left: 0;
-                margin-top: 8px;
+                box-sizing: border-box;
+                align-self: center;
             }
             
-            .join-btn span {
+            .join-link span {
                 display: block;
             }
         }
 
         @media (max-width: 480px) {
             .header-container {
-                padding: 12px 15px;
+                padding: 0 12px;
+            }
+            
+            .brand-name {
+                font-size: 0.9rem;
             }
             
             .logo {
-                width: 45px;
-                height: 45px;
+                width: 32px;
+                height: 32px;
             }
             
-            .logo-text {
-                font-size: 1.1rem;
+            .main-nav {
+                padding: 15px;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+                font-size: 15px;
             }
         }
+
+        /* ANIMACIONES SUAVES */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-nav.open .nav-item {
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .main-nav.open .nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .main-nav.open .nav-item:nth-child(2) { animation-delay: 0.15s; }
+        .main-nav.open .nav-item:nth-child(3) { animation-delay: 0.2s; }
+        .main-nav.open .nav-item:nth-child(4) { animation-delay: 0.25s; }
+        .main-nav.open .nav-item:nth-child(5) { animation-delay: 0.3s; }
+        .main-nav.open .nav-item:nth-child(6) { animation-delay: 0.35s; }
         
         @media screen and (max-width: 480px) {
             header {
@@ -745,30 +800,46 @@
             showTestimonial(0);
         };
         
-        // JavaScript para el menú móvil
-        function toggleMobileMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('show');
+        // JavaScript corregido para el menú móvil
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.menu-toggle');
+            
+            nav.classList.toggle('open');
+            toggle.classList.toggle('active');
         }
 
-        // Cerrar menú móvil al hacer clic en un enlace
+        // Cerrar menú al hacer clic en un enlace (solo en móvil)
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const navMenu = document.getElementById('navMenu');
+            const navItems = document.querySelectorAll('.nav-item');
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.menu-toggle');
             
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
                     if (window.innerWidth <= 768) {
-                        navMenu.classList.remove('show');
+                        nav.classList.remove('open');
+                        toggle.classList.remove('active');
                     }
                 });
             });
             
-            // Cerrar menú al hacer clic fuera
+            // Cerrar menú al hacer clic fuera (solo en móvil)
             document.addEventListener('click', function(event) {
-                const header = document.querySelector('header');
-                if (!header.contains(event.target) && navMenu.classList.contains('show')) {
-                    navMenu.classList.remove('show');
+                if (window.innerWidth <= 768) {
+                    const header = document.querySelector('header');
+                    if (!header.contains(event.target) && nav.classList.contains('open')) {
+                        nav.classList.remove('open');
+                        toggle.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Cerrar menú al redimensionar ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('open');
+                    toggle.classList.remove('active');
                 }
             });
         });
@@ -777,37 +848,39 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="logo-container">
+            <div class="logo-section">
                 <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
-                <span class="logo-text">Manos Solidarias X MX</span>
+                <span class="brand-name">Manos Solidarias X MX</span>
             </div>
             
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
             
-            <nav class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link active">
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" class="nav-item active">
                     <i class="fas fa-home"></i>
                     <span>Inicio</span>
                 </a>
-                <a href="conocenos.html" class="nav-link">
+                <a href="conocenos.html" class="nav-item">
                     <i class="fas fa-users"></i>
                     <span>Conócenos</span>
                 </a>
-                <a href="noticias.html" class="nav-link">
+                <a href="noticias.html" class="nav-item">
                     <i class="fas fa-newspaper"></i>
                     <span>Noticias</span>
                 </a>
-                <a href="eventos.html" class="nav-link">
+                <a href="eventos.html" class="nav-item">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Eventos</span>
                 </a>
-                <a href="equipo.html" class="nav-link">
+                <a href="equipo.html" class="nav-item">
                     <i class="fas fa-user-friends"></i>
                     <span>Equipo</span>
                 </a>
-                <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank" class="join-btn">
+                <a href="https://forms.gle/ccS1toQpyfLbnLNp6" target="_blank" class="nav-item join-link">
                     <i class="fas fa-hand-holding-heart"></i>
                     <span>Únete</span>
                 </a>
