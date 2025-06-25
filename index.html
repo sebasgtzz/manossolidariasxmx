@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ESTILOS BASE */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -41,6 +42,7 @@
         }
         .container {
             width: 95%;
+            max-width: 1200px;
             margin: auto;
             padding: 15px;
         }
@@ -210,78 +212,8 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        @media screen and (max-width: 480px) {
-            header {
-                flex-direction: column;
-                padding: 10px;
-            }
-            nav {
-                margin-top: 10px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav a {
-                margin: 5px;
-                font-size: 13px;
-            }
-            .logo {
-                width: 80px;
-            }
-            .testimonial-slider {
-                padding: 15px;
-            }
-            .testimonial {
-                padding: 15px;
-            }
-            
-            /* AJUSTES ESPECÍFICOS PARA LA SECCIÓN UNIFICADA EN MÓVIL */
-            .join-team-section {
-                padding: 20px 15px; /* Aumentamos el padding lateral */
-                margin: 30px 0; /* Reducimos el margen vertical */
-            }
-            
-            .join-team-section::before,
-            .join-team-section::after {
-                display: none; /* Ocultamos los elementos decorativos en móvil */
-            }
-            
-            .join-team-content h2 {
-                font-size: 1.6rem; /* Tamaño de fuente más pequeño */
-                margin-bottom: 20px; /* Menos espacio debajo del título */
-            }
-            
-            .join-team-content p {
-                font-size: 15px; /* Tamaño de fuente ligeramente mayor */
-                margin-bottom: 20px; /* Menos espacio debajo del párrafo */
-            }
-            
-            .action-card {
-                padding: 20px 15px; /* Menos padding interno */
-                margin-bottom: 20px; /* Espacio entre tarjetas */
-            }
-            
-            .action-card .icon {
-                width: 60px; /* Iconos más pequeños */
-                height: 60px;
-                font-size: 24px;
-            }
-            
-            .action-card h3 {
-                font-size: 1.3rem; /* Títulos más pequeños */
-            }
-            
-            .action-card p {
-                font-size: 14px; /* Texto más pequeño */
-            }
-            
-            .action-card .btn {
-                padding: 10px; /* Botones más compactos */
-                font-size: 14px;
-            }
-        }
         
-        /* NUEVA SECCIÓN UNIFICADA */
+        /* SECCIÓN UNIFICADA - MEJORADA */
         .join-team-section {
             background: linear-gradient(135deg, #f8f9ff, #edeeff);
             padding: 30px 20px;
@@ -369,6 +301,7 @@
             border-top: 4px solid #6C63FF;
             position: relative;
             overflow: hidden;
+            box-sizing: border-box;
         }
         
         .action-card:hover {
@@ -412,6 +345,7 @@
             font-size: 15px;
             margin-bottom: 25px;
             color: #666;
+            line-height: 1.6;
         }
         
         .action-card .btn {
@@ -427,14 +361,100 @@
             background: #FF6B9A;
         }
         
+        /* AJUSTES PARA MÓVILES */
         @media screen and (max-width: 768px) {
             .action-cards {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
             
             .action-card {
                 max-width: 100%;
+                width: calc(100% - 40px);
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            header {
+                flex-direction: column;
+                padding: 10px;
+            }
+            nav {
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a {
+                margin: 5px;
+                font-size: 13px;
+            }
+            .logo {
+                width: 80px;
+            }
+            .testimonial-slider {
+                padding: 15px;
+            }
+            .testimonial {
+                padding: 15px;
+            }
+            
+            /* AJUSTES ESPECÍFICOS PARA LA SECCIÓN UNIFICADA EN MÓVIL */
+            .join-team-section {
+                padding: 20px 10px;
+                margin: 30px 0;
+            }
+            
+            .join-team-section::before,
+            .join-team-section::after {
+                display: none;
+            }
+            
+            .join-team-content h2 {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+            
+            .join-team-content p {
+                font-size: 15px;
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+            
+            .action-card {
+                padding: 20px 15px;
+                margin-bottom: 15px;
+                width: calc(100% - 20px);
+            }
+            
+            .action-card .icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .action-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .action-card p {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+            
+            .action-card .btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            /* Ajustes de contenedor para evitar desbordamiento */
+            .container {
+                padding: 10px;
+            }
+            
+            .join-team-content {
+                padding: 0 5px;
             }
         }
     </style>
@@ -550,7 +570,7 @@
             </div>
         </section>
         
-        <!-- SECCIÓN UNIFICADA -->
+        <!-- SECCIÓN UNIFICADA MEJORADA -->
         <section class="join-team-section">
             <div class="join-team-content">
                 <h2>Forma parte de nuestro movimiento</h2>
