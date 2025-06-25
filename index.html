@@ -9,6 +9,7 @@
     <!-- Agregar íconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ESTILOS EXISTENTES (se mantienen igual) */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -236,26 +237,162 @@
                 padding: 15px;
             }
         }
-        /* Nuevo estilo para el botón de equipo */
-        .team-btn-container {
-            text-align: center;
-            margin: 40px 0 20px;
-            padding: 20px;
-            background: linear-gradient(135deg, #E3E1FF 0%, #f0f0ff 100%);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(108, 99, 255, 0.1);
+        
+        /* NUEVA SECCIÓN UNIFICADA */
+        .join-team-section {
+            background: linear-gradient(135deg, #f8f9ff, #edeeff);
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.15);
+            position: relative;
+            overflow: hidden;
         }
-        .team-btn-container h2 {
+        
+        .join-team-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: #FF6B9A;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .join-team-section::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background: #6C63FF;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .join-team-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .join-team-content h2 {
             color: #6C63FF;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
         }
-        .team-btn-container p {
+        
+        .join-team-content h2::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #6C63FF, #FF6B9A);
+            border-radius: 3px;
+        }
+        
+        .join-team-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
             color: #555;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            font-size: 1rem;
-            line-height: 1.6;
+        }
+        
+        .action-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .action-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 6px 15px rgba(108, 99, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #6C63FF;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(108, 99, 255, 0.2);
+        }
+        
+        .action-card.join-card {
+            border-top-color: #FF6B9A;
+        }
+        
+        .action-card .icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: #6C63FF;
+        }
+        
+        .join-card .icon {
+            background: rgba(255, 107, 154, 0.1);
+            color: #FF6B9A;
+        }
+        
+        .action-card h3 {
+            color: #6C63FF;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .join-card h3 {
+            color: #FF6B9A;
+        }
+        
+        .action-card p {
+            font-size: 15px;
+            margin-bottom: 25px;
+            color: #666;
+        }
+        
+        .action-card .btn {
+            background: #6C63FF;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 8px;
+        }
+        
+        .join-card .btn {
+            background: #FF6B9A;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .action-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-card {
+                max-width: 100%;
+            }
         }
     </style>
     <script>
@@ -369,18 +506,34 @@
                 <button class="slider-btn" id="nextTestimonial" onclick="nextTestimonial()">Siguiente <i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
-        <section id="unete" class="section">
-            <h2>Únete a Nosotros</h2>
-            <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar. Juntos podemos lograr más y cambiar vidas, incluida la nuestra. ¡Te esperamos!</p>
-            <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank"><i class="fas fa-hand-holding-heart"></i> Contáctanos</a>
-        </section>
         
-        <!-- Sección agregada para el botón de equipo -->
-        <div class="team-btn-container">
-            <h2>Conoce al corazón de nuestra organización</h2>
-            <p>Detrás de cada acción solidaria hay un equipo comprometido de personas apasionadas por el cambio social. Conoce a quienes hacen posible todo lo que hacemos.</p>
-            <a href="equipo.html" class="btn"><i class="fas fa-users"></i> Conoce a todo nuestro equipo</a>
-        </div>
+        <!-- NUEVA SECCIÓN UNIFICADA -->
+        <section class="join-team-section">
+            <div class="join-team-content">
+                <h2>Forma parte de nuestro movimiento</h2>
+                <p>En Manos Solidarias, creemos que el cambio real ocurre cuando personas comprometidas se unen para trabajar juntas. Ya sea que quieras unirte a nuestro equipo o conocer a quienes ya forman parte de esta misión, aquí encontrarás tu lugar.</p>
+                
+                <div class="action-cards">
+                    <div class="action-card join-card">
+                        <div class="icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Únete a Nosotros</h3>
+                        <p>Si buscas ser parte de algo más grande, contribuir con acciones reales y rodearte de personas que comparten tu pasión por ayudar, este es tu lugar.</p>
+                        <a href="https://forms.gle/ccS1toQpyfLbnLNp6" class="btn" target="_blank"><i class="fas fa-user-plus"></i> Únete ahora</a>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Conoce a nuestro equipo</h3>
+                        <p>Detrás de cada acción solidaria hay un equipo comprometido de personas apasionadas por el cambio social. Descubre quiénes somos.</p>
+                        <a href="equipo.html" class="btn"><i class="fas fa-address-card"></i> Conoce al equipo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <footer>
         &copy; 2025 Manos Solidarias X MX. Todos los derechos reservados.
