@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +6,9 @@
     <title>Noticias - Manos Solidarias X MX</title>
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Agregar íconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ESTILOS BASE */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -17,9 +16,170 @@
             text-align: center;
             background-color: #f4f4f9;
             color: #333;
+            line-height: 1.6;
         }
-        
-        /* HEADER CON MENÚ DE HAMBURGUESA CORREGIDO - LOGO MÁS GRANDE */
+        header {
+            background: #E3E1FF;
+            color: #333;
+            padding: 15px 30px;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #6C63FF;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #FF6B9A;
+            text-decoration: underline;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            margin: 40px 0;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .section h2 {
+            color: #6C63FF;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+        .section h3 {
+            color: #FF6B9A;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .section p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .logo {
+            width: 120px;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .news-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .news-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .news-card h4 {
+            font-size: 1.3em;
+            color: #6C63FF;
+            margin-bottom: 10px;
+        }
+        .news-card p {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.5;
+        }
+        .news-card .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #FF6B9A;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            background: #6C63FF;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        .social-media {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .social-media a {
+            color: white;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        .social-media a:hover {
+            color: #FF6B9A;
+            transform: scale(1.2);
+        }
+        .btn {
+            background: #FF6B9A;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #ff4f85;
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                width: 100px;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <style>
+
+    </style>
+    <style>
+/* HEADER CON MENÚ DE HAMBURGUESA CORREGIDO - LOGO MÁS GRANDE */
         header {
             background: #E3E1FF;
             border-bottom: 1px solid rgba(108, 99, 255, 0.1);
@@ -658,97 +818,10 @@
         .main-nav.open .nav-item:nth-child(4) { animation-delay: 0.25s; }
         .main-nav.open .nav-item:nth-child(5) { animation-delay: 0.3s; }
         .main-nav.open .nav-item:nth-child(6) { animation-delay: 0.35s; }
-        
-        @media screen and (max-width: 480px) {
-            header {
-                flex-direction: column;
-                padding: 10px;
-            }
-            nav {
-                margin-top: 10px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav a {
-                margin: 5px;
-                font-size: 13px;
-            }
-            .testimonial-slider {
-                padding: 15px;
-            }
-            .testimonial {
-                padding: 15px;
-            }
-            .action-card .btn {
-                max-width: 100%;
-                box-sizing: border-box;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            /* AJUSTES ESPECÍFICOS PARA LA SECCIÓN UNIFICADA EN MÓVIL */
-            .join-team-section {
-                padding: 20px 10px;
-                margin: 30px 0;
-            }
-            
-            .join-team-section::before,
-            .join-team-section::after {
-                display: none;
-            }
-            
-            .join-team-content h2 {
-                font-size: 1.6rem;
-                margin-bottom: 20px;
-            }
-            
-            .join-team-content p {
-                font-size: 15px;
-                margin-bottom: 20px;
-                padding: 0 10px;
-            }
-            
-            .action-card {
-                padding: 20px 15px;
-                margin-bottom: 15px;
-                width: calc(100% - 20px);
-            }
-            
-            .action-card .icon {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-            }
-            
-            .action-card h3 {
-                font-size: 1.3rem;
-            }
-            
-            .action-card p {
-                font-size: 14px;
-                margin-bottom: 15px;
-            }
-            
-            .action-card .btn {
-                padding: 10px;
-                font-size: 14px;
-            }
-            
-            /* Ajustes de contenedor para evitar desbordamiento */
-            .container {
-                padding: 10px;
-            }
-            
-            .join-team-content {
-                padding: 0 5px;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
+<header>
         <div class="header-container">
             <div class="logo-section">
                 <img src="imagenes/logo.png" alt="Logo Manos Solidarias" class="logo">
@@ -789,6 +862,9 @@
             </nav>
         </div>
     </header>
+
+
+    
 
     <div class="container">
         <section class="section">
@@ -839,42 +915,8 @@
             </a>
         </div>
     </footer>
-</body>
-</html>
-
     <script>
-        // JavaScript para el menú de hamburguesa
-        function toggleMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            
-            menuToggle.classList.toggle('active');
-            mainNav.classList.toggle('open');
-        }
-
-        function closeMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            
-            menuToggle.classList.remove('active');
-            mainNav.classList.remove('open');
-        }
-
-        // Event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            const navItems = document.querySelectorAll('.nav-item');
-            
-            // Toggle menu
-            if (menuToggle) {
-                menuToggle.addEventListener('click', toggleMenu);
-            }
-            
-            // Close menu when clicking nav items
-            navItems.forEach(item => {
-                item.addEventListener('click', closeMenu);
-            });
+        
             
             // Close menu when clicking outside
             document.addEventListener('click', function(event) {
@@ -890,4 +932,8 @@
             });
         });
     </script>
-
+    <script>
+        
+    </script>
+</body>
+</html>
