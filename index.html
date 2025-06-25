@@ -18,7 +18,7 @@
             color: #333;
         }
         
-        /* HEADER CON MENÚ DE HAMBURGUESA CORREGIDO */
+        /* HEADER CON MENÚ DE HAMBURGUESA CORREGIDO - LOGO MÁS GRANDE */
         header {
             background: #E3E1FF;
             border-bottom: 1px solid rgba(108, 99, 255, 0.1);
@@ -31,24 +31,24 @@
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
+            height: 85px; /* Altura aumentada */
             position: relative;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px; /* Espaciado aumentado */
             z-index: 1001;
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
+            width: 75px; /* Tamaño aumentado */
+            height: 75px; /* Tamaño aumentado */
             object-fit: contain;
             transition: transform 0.2s ease;
         }
@@ -58,7 +58,7 @@
         }
 
         .brand-name {
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* Tamaño aumentado */
             font-weight: 700;
             color: #6C63FF;
             white-space: nowrap;
@@ -82,8 +82,8 @@
         }
 
         .hamburger-line {
-            width: 24px;
-            height: 2px;
+            width: 26px; /* Tamaño aumentado */
+            height: 3px; /* Tamaño aumentado */
             background: #6C63FF;
             transition: all 0.3s ease;
             border-radius: 2px;
@@ -113,10 +113,10 @@
             gap: 6px;
             color: #6C63FF;
             text-decoration: none;
-            padding: 10px 16px;
+            padding: 12px 16px; /* Padding aumentado */
             border-radius: 25px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px; /* Tamaño aumentado */
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -151,7 +151,7 @@
         }
 
         .nav-item i {
-            font-size: 16px;
+            font-size: 17px; /* Tamaño aumentado */
         }
 
         .join-link {
@@ -160,6 +160,7 @@
             font-weight: 700;
             margin-left: 8px;
             box-shadow: 0 4px 15px rgba(255, 107, 154, 0.3);
+            padding: 12px 18px; /* Padding aumentado */
         }
 
         .join-link:hover {
@@ -170,8 +171,10 @@
         }
 
         .join-link i {
-            font-size: 16px;
+            font-size: 17px; /* Tamaño aumentado */
         }
+        
+        /* RESTANTE DEL CSS PERMANECE IGUAL */
         .container {
             width: 95%;
             max-width: 1200px;
@@ -514,7 +517,7 @@
             }
             
             .nav-item {
-                padding: 10px 12px;
+                padding: 12px 14px;
             }
             
             .join-link span {
@@ -529,16 +532,17 @@
         @media (max-width: 768px) {
             .header-container {
                 padding: 0 15px;
-                height: 70px;
+                height: 85px; /* Ajuste para móviles */
             }
             
             .brand-name {
-                font-size: 1rem;
+                font-size: 1.1rem; /* Tamaño aumentado */
+                display: block; /* Mantener visible */
             }
             
             .logo {
-                width: 55px;
-                height: 55px;
+                width: 65px; /* Tamaño aumentado para móviles */
+                height: 65px; /* Tamaño aumentado para móviles */
             }
             
             .menu-toggle {
@@ -547,7 +551,7 @@
             
             .main-nav {
                 position: fixed;
-                top: 70px;
+                top: 85px; /* Ajustado a la nueva altura */
                 left: 0;
                 right: 0;
                 background: #E3E1FF;
@@ -560,7 +564,7 @@
                 transition: all 0.3s ease;
                 border-bottom: 1px solid rgba(108, 99, 255, 0.1);
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                max-height: calc(100vh - 70px);
+                max-height: calc(100vh - 85px);
                 overflow-y: auto;
             }
             
@@ -608,12 +612,12 @@
             }
             
             .brand-name {
-                font-size: 0.9rem;
+                font-size: 1.0rem; /* Tamaño aumentado */
             }
             
             .logo {
-                width: 50px;
-                height: 50px;
+                width: 60px; /* Tamaño aumentado para móviles pequeños */
+                height: 60px; /* Tamaño aumentado para móviles pequeños */
             }
             
             .main-nav {
@@ -621,8 +625,13 @@
             }
             
             .nav-item {
-                padding: 10px 15px;
+                padding: 12px 15px;
                 font-size: 15px;
+            }
+            
+            .hamburger-line {
+                width: 24px;
+                height: 3px;
             }
         }
 
@@ -663,9 +672,6 @@
             nav a {
                 margin: 5px;
                 font-size: 13px;
-            }
-            .logo {
-                width: 80px;
             }
             .testimonial-slider {
                 padding: 15px;
